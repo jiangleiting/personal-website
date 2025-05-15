@@ -5,21 +5,180 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="联系蒋雷霆 - 技术交流与合作">
-    <title>联系我 - 蒋雷霆的个人网站</title>
+    <meta name="keywords" content="联系方式,技术咨询,项目合作">
+    <meta name="author" content="蒋雷霆">
     
-    <!-- Google Fonts -->
+    <!-- 预加载关键资源 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome -->
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <title>联系我 - 蒋雷霆的个人网站</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- 自定义样式 -->
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>
+        /* 联系页面特定样式 */
+        .contact-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background-color: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            padding-right: 2rem;
+            border-right: 1px solid var(--border-color);
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem 0;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .contact-list i {
+            width: 24px;
+            margin-right: 1rem;
+            color: var(--primary-color);
+        }
+
+        .contact-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list a:hover {
+            color: var(--hover-color);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            color: var(--text-color);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 2px rgba(74, 158, 255, 0.2);
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--hover-color);
+            transform: translateY(-2px);
+        }
+
+        .faq-section {
+            margin-top: 3rem;
+        }
+
+        .faq-list {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .faq-item p {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .contact-info {
+                padding-right: 0;
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+                padding-bottom: 2rem;
+            }
+
+            .contact-section {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="particles-js"></div>
+    
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- 阅读进度条 -->
+    <div class="progress-bar" id="readingProgress"></div>
     
     <header class="header">
         <nav class="nav-container">
@@ -45,16 +204,10 @@
 
     <main class="main-content">
         <div class="container">
-            <!-- 面包屑导航 -->
-            <div class="breadcrumb">
-                <div class="breadcrumb-item"><a href="../index.html">首页</a></div>
-                <div class="breadcrumb-item active">联系</div>
-            </div>
-
             <section class="contact-section">
-                <h1 class="section-title">联系我</h1>
+                <h1 class="page-title">联系我</h1>
                 
-                <div class="contact-content">
+                <div class="contact-grid">
                     <div class="contact-info">
                         <h2>联系方式</h2>
                         <ul class="contact-list">
@@ -72,48 +225,54 @@
                             </li>
                         </ul>
                     </div>
-
-                    <div class="contact-form">
+                    
+                    <div class="contact-form-container">
                         <h2>给我留言</h2>
-                        <form id="contactForm" onsubmit="return handleSubmit(event)">
+                        <form class="contact-form" id="contactForm">
                             <div class="form-group">
                                 <label for="name">姓名</label>
                                 <input type="text" id="name" name="name" required>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="email">邮箱</label>
                                 <input type="email" id="email" name="email" required>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="subject">主题</label>
                                 <input type="text" id="subject" name="subject" required>
                             </div>
+                            
                             <div class="form-group">
                                 <label for="message">消息</label>
                                 <textarea id="message" name="message" rows="5" required></textarea>
                             </div>
+                            
                             <button type="submit" class="submit-btn">发送消息</button>
                         </form>
                     </div>
                 </div>
-            </section>
 
-            <section class="faq-section">
-                <h2 class="section-title">常见问题</h2>
-                <div class="faq-list">
-                    <div class="faq-item">
-                        <h3><i class="fas fa-rss"></i> 如何订阅博客更新？</h3>
-                        <p>你可以通过关注我的GitHub或订阅RSS feed来获取最新的博客更新。</p>
+                <section class="faq-section">
+                    <h2>常见问题</h2>
+                    <div class="faq-list">
+                        <div class="faq-item">
+                            <h3>如何订阅博客更新？</h3>
+                            <p>你可以通过关注我的GitHub或订阅RSS feed来获取最新的博客更新。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>是否提供技术咨询？</h3>
+                            <p>是的，我很乐意提供技术咨询服务。你可以通过上面的联系方式与我取得联系。</p>
+                        </div>
+                        
+                        <div class="faq-item">
+                            <h3>如何参与项目协作？</h3>
+                            <p>你可以在GitHub上fork我的项目，提交pull request，或者直接与我联系讨论合作机会。</p>
+                        </div>
                     </div>
-                    <div class="faq-item">
-                        <h3><i class="fas fa-comments"></i> 是否提供技术咨询？</h3>
-                        <p>是的，我很乐意提供技术咨询服务。你可以通过上面的联系方式与我取得联系。</p>
-                    </div>
-                    <div class="faq-item">
-                        <h3><i class="fas fa-code-branch"></i> 如何参与项目协作？</h3>
-                        <p>你可以在GitHub上fork我的项目，提交pull request，或者直接与我联系讨论合作机会。</p>
-                    </div>
-                </div>
+                </section>
             </section>
         </div>
     </main>
@@ -124,16 +283,29 @@
         </div>
     </footer>
 
-    <!-- 返回顶部按钮 -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <!-- JavaScript -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../assets/js/particles-config.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
     <script>
-        // 主题切换功能
+        // 表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // 这里可以添加发送表单数据的逻辑
+            alert('消息已发送！我会尽快回复您。');
+            this.reset();
+        });
+
+        // 主题切换
         const themeToggle = document.querySelector('.theme-toggle');
         const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
         
@@ -160,47 +332,8 @@
         // 更新主题图标
         function updateThemeIcon(theme) {
             const icon = themeToggle.querySelector('i');
-            if (theme === 'dark') {
-                icon.className = 'fas fa-sun';
-            } else {
-                icon.className = 'fas fa-moon';
-            }
+            icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
         }
-        
-        // 监听系统主题变化
-        prefersDarkScheme.addEventListener('change', (e) => {
-            const newTheme = e.matches ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        // 表单提交处理
-        function handleSubmit(event) {
-            event.preventDefault();
-            // 这里可以添加表单提交逻辑
-            alert('消息已发送！我会尽快回复您。');
-            event.target.reset();
-            return false;
-        }
-
-        // 返回顶部按钮
-        const backToTop = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.pageYOffset > 100) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
     </script>
 </body>
 </html> 

@@ -234,80 +234,81 @@ document.addEventListener('DOMContentLoaded', () => {
     lazyImages.forEach(img => imageObserver.observe(img));
 });
 
-// 移动端导航菜单
+// DOM Elements
 const menuToggle = document.querySelector('.menu-toggle');
 const navMenu = document.querySelector('.nav-menu');
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+const cards = document.querySelectorAll('.card');
 
-if (menuToggle && navMenu) {
-    menuToggle.addEventListener('click', () => {
-        menuToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
-    
-    // 点击导航链接后关闭菜单
-    navMenu.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            menuToggle.classList.remove('active');
-            navMenu.classList.remove('active');
-        });
-    });
-}
+// Navigation
+menuToggle.addEventListener('click', () => {
+    menuToggle.classList.toggle('active');
+    navMenu.classList.toggle('active');
+});
 
-// 暗色模式切换
-const darkModeToggle = document.getElementById('darkModeToggle');
-if (darkModeToggle) {
-    darkModeToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
-        localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
-    });
-    
-    // 检查本地存储中的暗色模式设置
-    if (localStorage.getItem('darkMode') === 'true') {
-        document.body.classList.add('dark-mode');
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    if (!menuToggle.contains(e.target) && !navMenu.contains(e.target)) {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
     }
+});
+
+// Theme toggle
+const currentTheme = localStorage.getItem('theme');
+if (currentTheme) {
+    document.documentElement.setAttribute('data-theme', currentTheme);
+    updateThemeIcon(currentTheme);
+} else if (prefersDarkScheme.matches) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    updateThemeIcon('dark');
 }
 
-// 搜索功能
-const searchInput = document.querySelector('.search-input');
-if (searchInput) {
-    searchInput.addEventListener('input', debounce(handleSearch, 300));
-}
-
-function handleSearch(event) {
-    const searchTerm = event.target.value.toLowerCase();
-    const articles = document.querySelectorAll('.post-card');
+themeToggle.addEventListener('click', () => {
+    let theme = document.documentElement.getAttribute('data-theme');
+    let newTheme = theme === 'dark' ? 'light' : 'dark';
     
-    articles.forEach(article => {
-        const title = article.querySelector('h3').textContent.toLowerCase();
-        const content = article.querySelector('p').textContent.toLowerCase();
-        
-        if (title.includes(searchTerm) || content.includes(searchTerm)) {
-            article.style.display = 'block';
-        } else {
-            article.style.display = 'none';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
+});
+
+function updateThemeIcon(theme) {
+    const icon = themeToggle.querySelector('i');
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+}
+
+// Floating cards animation
+cards.forEach(card => {
+    card.addEventListener('mouseover', () => {
+        card.style.transform = 'scale(1.05) translateY(-10px)';
+    });
+    
+    card.addEventListener('mouseout', () => {
+        card.style.transform = '';
+    });
+});
+
+// Scroll animations
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
         }
     });
-}
+}, {
+    threshold: 0.1
+});
 
-// 防抖函数
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
+document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
 
-// 页面过渡动画
+// Page transitions
 document.addEventListener('DOMContentLoaded', () => {
     document.body.classList.add('page-loaded');
 });
 
-// 链接预加载
+// Link prefetching
 document.addEventListener('mouseover', e => {
     if (e.target.tagName === 'A' && e.target.href) {
         const link = document.createElement('link');
@@ -472,48 +473,4 @@ function shareToWeibo(title, url) {
 function shareToTwitter(title, url) {
     const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
     window.open(shareUrl, '_blank', 'width=700,height=500');
-}
-
-// 主题切换功能
-function initThemeToggle() {
-    const themeToggle = document.querySelector('.theme-toggle');
-    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-    if (themeToggle) {
-        // 检查本地存储中的主题设置
-        const currentTheme = localStorage.getItem('theme');
-        if (currentTheme) {
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            updateThemeIcon(currentTheme);
-        } else if (prefersDarkScheme.matches) {
-            document.documentElement.setAttribute('data-theme', 'dark');
-            updateThemeIcon('dark');
-        }
-        
-        // 切换主题
-        themeToggle.addEventListener('click', () => {
-            let theme = document.documentElement.getAttribute('data-theme');
-            let newTheme = theme === 'dark' ? 'light' : 'dark';
-            
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-
-        // 监听系统主题变化
-        prefersDarkScheme.addEventListener('change', (e) => {
-            const newTheme = e.matches ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateThemeIcon(newTheme);
-        });
-    }
-}
-
-// 更新主题图标
-function updateThemeIcon(theme) {
-    const icon = document.querySelector('.theme-toggle i');
-    if (icon) {
-        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
 } 

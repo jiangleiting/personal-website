@@ -85,26 +85,24 @@
     
     <header class="header">
         <nav class="nav-container">
-            <a href="./index.html" class="logo">我的网站</a>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="搜索文章...">
-            </div>
+            <a href="./index.html" class="logo">
+                <span class="gradient-text">JLT</span>
+            </a>
             <div class="nav-menu">
-                <li><a href="./index.html">首页</a></li>
-                <li><a href="./pages/blog.html">博客</a></li>
-                <li><a href="./pages/about.html">关于</a></li>
-                <li><a href="./pages/contact.html">联系</a></li>
-                <li>
-                    <button class="theme-toggle" aria-label="切换主题">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </li>
+                <a href="./index.html" class="nav-link active">首页</a>
+                <a href="./pages/projects.html" class="nav-link">项目</a>
+                <a href="./pages/blog.html" class="nav-link">博客</a>
+                <a href="./pages/about.html" class="nav-link">关于</a>
+                <a href="./pages/contact.html" class="nav-link">联系</a>
+                <button class="theme-toggle" aria-label="切换主题">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
+            <button class="menu-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
@@ -114,18 +112,30 @@
                 <div class="hero-content">
                     <div class="hero-text">
                         <h1 class="hero-title">
-                            <span class="greeting">你好，我是</span>
-                            <span class="name">蒋雷霆</span>
+                            <span class="gradient-text">AI驱动的创新</span>
+                            <span class="subtitle">与技术探索者</span>
                         </h1>
-                        <p class="hero-tagline">探索AI与软件开发的交汇之处</p>
-                        <p class="hero-description">中国科学院大学在读硕士生，专注于人工智能与软件工程的研究与实践。热衷于探索前沿技术，致力于将创新理念转化为实际应用。</p>
+                        <p class="hero-description">在人工智能与软件工程的交汇处，探索无限可能</p>
                         <div class="hero-cta">
-                            <a href="./pages/about.html" class="primary-btn">了解更多</a>
+                            <a href="./pages/projects.html" class="primary-btn">探索项目</a>
                             <a href="./pages/blog.html" class="secondary-btn">阅读博客</a>
                         </div>
                     </div>
-                    <div class="hero-image">
-                        <img src="./assets/images/profile.jpg" alt="蒋雷霆的照片" class="profile-image">
+                    <div class="hero-visual">
+                        <div class="floating-cards">
+                            <div class="card card-1">
+                                <i class="fas fa-brain"></i>
+                                <h3>AI研究</h3>
+                            </div>
+                            <div class="card card-2">
+                                <i class="fas fa-code"></i>
+                                <h3>全栈开发</h3>
+                            </div>
+                            <div class="card card-3">
+                                <i class="fas fa-robot"></i>
+                                <h3>机器学习</h3>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

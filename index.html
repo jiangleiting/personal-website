@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的AI之旅</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
+            background-color: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 导航栏样式 */
+        .header {
+            background-color: #1a1a1a;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            color: #ffffff;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: #4a9eff;
+        }
+
+        /* 主要内容区域 */
+        .main-content {
+            flex: 1;
+            padding: 2rem 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .hero {
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* 文章卡片样式 */
+        .blog-posts {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .post-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .post-card h3 {
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .post-meta {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            background-color: #4a9eff;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background-color: #357abd;
+        }
+
+        /* 关于和工具部分 */
+        .about-section, .tools-section {
+            background: white;
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .tools-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .tools-list li {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 4px;
+        }
+
+        /* 页脚样式 */
+        .footer {
+            background-color: #1a1a1a;
+            color: #ffffff;
+            padding: 1rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                gap: 1rem;
+            }
+            
+            .blog-posts {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <header class="header">
+        <nav class="nav-container">
+            <a href="#" class="logo">我的AI之旅</a>
+            <ul class="nav-menu">
+                <li><a href="#home">首页</a></li>
+                <li><a href="#blog">博客</a></li>
+                <li><a href="#about">关于我</a></li>
+                <li><a href="#tools">AI工具</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- 主要内容 -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Hero区域 -->
+            <section id="home" class="hero">
+                <h1>探索人工智能的无限可能</h1>
+                <p>记录我的学习心得、分享实用的AI工具与见解</p>
+            </section>
+
+            <!-- 博客文章区域 -->
+            <section id="blog">
+                <h2>最新博文</h2>
+                <div class="blog-posts">
+                    <article class="post-card">
+                        <h3>初探大型语言模型 (LLM)</h3>
+                        <p class="post-meta">发布于: 2024年1月20日 | 分类: AI基础</p>
+                        <p>今天我开始学习什么是大型语言模型，比如GPT系列。它们是如何工作的，以及它们能用来做什么...</p>
+                        <a href="#" class="read-more-btn">阅读全文</a>
+                    </article>
+
+                    <article class="post-card">
+                        <h3>AI绘画工具体验</h3>
+                        <p class="post-meta">发布于: 2024年1月18日 | 分类: AI应用</p>
+                        <p>Midjourney的强大超乎想象！我尝试用它生成了一些科幻风格的图片，效果非常惊艳...</p>
+                        <a href="#" class="read-more-btn">阅读全文</a>
+                    </article>
+
+                    <article class="post-card">
+                        <h3>AI学习资源汇总</h3>
+                        <p class="post-meta">发布于: 2024年1月15日 | 分类: 学习资源</p>
+                        <p>整理了一些对AI初学者非常友好的在线课程、书籍和社区，希望能帮助到同样在路上的你...</p>
+                        <a href="#" class="read-more-btn">阅读全文</a>
+                    </article>
+                </div>
+            </section>
+
+            <!-- 关于我区域 -->
+            <section id="about" class="about-section">
+                <h2>关于我</h2>
+                <p>你好！我是一个AI爱好者和持续学习者。我创建这个网站是为了记录我的学习过程，分享我在AI领域的探索和发现。</p>
+                <p>我目前正在学习机器学习基础、自然语言处理、AIGC工具应用等。我希望通过这个平台与更多对AI感兴趣的朋友交流，共同进步。</p>
+            </section>
+
+            <!-- AI工具推荐区域 -->
+            <section id="tools" class="tools-section">
+                <h2>推荐的AI工具</h2>
+                <ul class="tools-list">
+                    <li><strong>文本生成:</strong> ChatGPT, Claude, KimiChat</li>
+                    <li><strong>图像生成:</strong> Midjourney, Stable Diffusion, Leonardo.ai</li>
+                    <li><strong>AI笔记:</strong> Notion AI, Gamma</li>
+                    <li><strong>编程助手:</strong> GitHub Copilot, Amazon CodeWhisperer</li>
+                </ul>
+            </section>
+        </div>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>© 2024 我的AI之旅. 保留所有权利.</p>
+        </div>
+    </footer>
+</body>
+</html>

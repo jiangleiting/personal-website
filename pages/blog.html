@@ -10,15 +10,11 @@
     
     <title>博客 - 蒋雷霆的技术分享</title>
     
-    <!-- 预加载关键资源 -->
-    <link rel="preload" href="../assets/css/style.css" as="style">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="../assets/js/particles-config.js"></script>
-    <script src="../assets/js/main.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+    <script src="../assets/js/particles-config.js" defer></script>
+    <script src="../assets/js/main.js" defer></script>
 </head>
 <body>
     <div id="particles-js"></div>
@@ -46,7 +42,6 @@
     <main class="content-container">
         <h1 class="page-title">博客文章</h1>
         
-        <!-- 添加分类筛选 -->
         <div class="category-filter">
             <button class="filter-btn active" data-category="all">全部</button>
             <button class="filter-btn" data-category="tech">技术</button>
@@ -54,51 +49,46 @@
             <button class="filter-btn" data-category="life">生活</button>
         </div>
 
-        <ul class="blog-list">
-            <li class="blog-post-item" data-category="tech">
-                <article>
-                    <h2><a href="./posts/javascript-async.html">深入理解JavaScript异步编程</a></h2>
-                    <div class="post-meta">
-                        <time datetime="2024-05-15">2024年5月15日</time>
-                        <span class="post-category">技术</span>
+        <div class="blog-list">
+            <article class="blog-post-item" data-category="tech">
+                <h2><a href="./posts/javascript-async.html">深入理解JavaScript异步编程</a></h2>
+                <div class="post-meta">
+                    <time datetime="2024-05-15">2024年5月15日</time>
+                    <span class="post-category">技术</span>
+                </div>
+                <p class="post-summary">
+                    探讨JavaScript中的异步编程模式，包括回调、Promise、async/await等内容，帮助开发者更好地理解和使用异步编程...
+                </p>
+                <div class="post-footer">
+                    <a href="./posts/javascript-async.html" class="read-more-btn">阅读更多</a>
+                    <div class="post-tags">
+                        <span class="tag">JavaScript</span>
+                        <span class="tag">异步编程</span>
+                        <span class="tag">Promise</span>
                     </div>
-                    <p class="post-summary">
-                        探讨JavaScript中的异步编程模式，包括回调、Promise、async/await等内容，帮助开发者更好地理解和使用异步编程...
-                    </p>
-                    <div class="post-footer">
-                        <a href="./posts/javascript-async.html" class="read-more-btn">阅读更多</a>
-                        <div class="post-tags">
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">异步编程</span>
-                            <span class="tag">Promise</span>
-                        </div>
-                    </div>
-                </article>
-            </li>
+                </div>
+            </article>
             
-            <li class="blog-post-item" data-category="dev">
-                <article>
-                    <h2><a href="./posts/react-performance.html">React性能优化实践</a></h2>
-                    <div class="post-meta">
-                        <time datetime="2024-05-14">2024年5月14日</time>
-                        <span class="post-category">开发</span>
+            <article class="blog-post-item" data-category="dev">
+                <h2><a href="./posts/react-performance.html">React性能优化实践</a></h2>
+                <div class="post-meta">
+                    <time datetime="2024-05-14">2024年5月14日</time>
+                    <span class="post-category">开发</span>
+                </div>
+                <p class="post-summary">
+                    分享在React项目中常用的性能优化技巧和最佳实践，包括组件优化、状态管理、渲染优化等多个方面...
+                </p>
+                <div class="post-footer">
+                    <a href="./posts/react-performance.html" class="read-more-btn">阅读更多</a>
+                    <div class="post-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">性能优化</span>
+                        <span class="tag">前端开发</span>
                     </div>
-                    <p class="post-summary">
-                        分享在React项目中常用的性能优化技巧和最佳实践，包括组件优化、状态管理、渲染优化等多个方面...
-                    </p>
-                    <div class="post-footer">
-                        <a href="./posts/react-performance.html" class="read-more-btn">阅读更多</a>
-                        <div class="post-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">性能优化</span>
-                            <span class="tag">前端开发</span>
-                        </div>
-                    </div>
-                </article>
-            </li>
-        </ul>
+                </div>
+            </article>
+        </div>
 
-        <!-- 分页导航 -->
         <nav class="pagination">
             <a href="#" class="pagination-prev disabled">上一页</a>
             <span class="pagination-current">1</span>
@@ -113,31 +103,15 @@
     </footer>
 
     <script>
-        const gitalk = new Gitalk({
-            clientID: 'YOUR_CLIENT_ID',
-            clientSecret: 'YOUR_CLIENT_SECRET',
-            repo: 'personal-website',
-            owner: 'jiangleiting',
-            admin: ['jiangleiting'],
-            id: location.pathname,
-            distractionFreeMode: false
-        });
-        gitalk.render('gitalk-container');
-
         // 分类筛选功能
         document.querySelectorAll('.filter-btn').forEach(button => {
             button.addEventListener('click', () => {
-                // 移除所有按钮的active类
                 document.querySelectorAll('.filter-btn').forEach(btn => {
                     btn.classList.remove('active');
                 });
-                
-                // 添加当前按钮的active类
                 button.classList.add('active');
                 
                 const category = button.dataset.category;
-                
-                // 筛选文章
                 document.querySelectorAll('.blog-post-item').forEach(item => {
                     if (category === 'all' || item.dataset.category === category) {
                         item.style.display = 'block';

@@ -4,8 +4,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>博客 - 我的个人网站</title>
+    <meta name="description" content="蒋雷霆的博客 - 分享Web开发、前端技术、全栈开发经验以及个人成长心得的技术博客。">
+    <meta name="keywords" content="博客,技术博客,Web开发,前端开发,全栈开发,个人成长">
+    <meta name="author" content="蒋雷霆">
+    
+    <title>博客 - 蒋雷霆的技术分享</title>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="../assets/css/style.css" as="style">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="../assets/js/particles-config.js"></script>
     <script src="../assets/js/main.js"></script>
@@ -17,96 +25,90 @@
     
     <header class="header">
         <nav class="nav-container">
-            <a href="/" class="logo">我的网站</a>
+            <a href="../index.html" class="logo">我的网站</a>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="搜索文章...">
             </div>
             <ul class="nav-menu">
-                <li><a href="/">首页</a></li>
-                <li><a href="/pages/blog.html">博客</a></li>
-                <li><a href="/pages/about.html">关于</a></li>
-                <li><a href="/pages/contact.html">联系</a></li>
+                <li><a href="../index.html">首页</a></li>
+                <li><a href="./blog.html">博客</a></li>
+                <li><a href="./about.html">关于</a></li>
+                <li><a href="./contact.html">联系</a></li>
             </ul>
         </nav>
     </header>
 
-    <main class="main-content">
-        <div class="container">
-            <nav class="breadcrumb">
-                <div class="breadcrumb-item"><a href="/">首页</a></div>
-                <div class="breadcrumb-item active">博客</div>
-            </nav>
-
-            <div class="category-tags">
-                <span class="category-tag active">全部</span>
-                <span class="category-tag">技术</span>
-                <span class="category-tag">开发</span>
-                <span class="category-tag">生活</span>
-            </div>
-
-            <section class="blog-posts">
-                <article class="post-card">
-                    <h3>深入理解JavaScript异步编程</h3>
-                    <div class="post-meta">发布于 2024-05-15 | 分类：技术</div>
-                    <p>探讨JavaScript中的异步编程模式，包括回调、Promise、async/await等内容...</p>
-                    <a href="#" class="read-more-btn">阅读更多</a>
-                </article>
-
-                <article class="post-card">
-                    <h3>React性能优化实践</h3>
-                    <div class="post-meta">发布于 2024-05-14 | 分类：开发</div>
-                    <p>分享在React项目中常用的性能优化技巧和最佳实践...</p>
-                    <a href="#" class="read-more-btn">阅读更多</a>
-                </article>
-
-                <article class="post-card">
-                    <h3>程序员的健康之道</h3>
-                    <div class="post-meta">发布于 2024-05-13 | 分类：生活</div>
-                    <p>作为程序员，如何在忙碌的工作中保持身心健康...</p>
-                    <a href="#" class="read-more-btn">阅读更多</a>
-                </article>
-
-                <article class="post-card">
-                    <h3>Docker容器化实践</h3>
-                    <div class="post-meta">发布于 2024-05-12 | 分类：技术</div>
-                    <p>Docker容器化技术的实践经验分享，从入门到进阶...</p>
-                    <a href="#" class="read-more-btn">阅读更多</a>
-                </article>
-
-                <article class="post-card">
-                    <h3>Git工作流最佳实践</h3>
-                    <div class="post-meta">发布于 2024-05-11 | 分类：开发</div>
-                    <p>团队协作中的Git工作流程，包括分支管理、代码审查等内容...</p>
-                    <a href="#" class="read-more-btn">阅读更多</a>
-                </article>
-
-                <article class="post-card">
-                    <h3>程序员的时间管理</h3>
-                    <div class="post-meta">发布于 2024-05-10 | 分类：生活</div>
-                    <p>如何在繁忙的开发工作中做好时间管理，提高工作效率...</p>
-                    <a href="#" class="read-more-btn">阅读更多</a>
-                </article>
-            </section>
-
-            <div class="pagination">
-                <a href="#" class="page-link">上一页</a>
-                <span class="page-number active">1</span>
-                <a href="#" class="page-number">2</a>
-                <a href="#" class="page-number">3</a>
-                <a href="#" class="page-link">下一页</a>
-            </div>
-
-            <!-- 添加评论区 -->
-            <section class="comments-section">
-                <h2>评论</h2>
-                <div id="gitalk-container"></div>
-            </section>
+    <main class="content-container">
+        <h1 class="page-title">博客文章</h1>
+        
+        <!-- 添加分类筛选 -->
+        <div class="category-filter">
+            <button class="filter-btn active" data-category="all">全部</button>
+            <button class="filter-btn" data-category="tech">技术</button>
+            <button class="filter-btn" data-category="dev">开发</button>
+            <button class="filter-btn" data-category="life">生活</button>
         </div>
+
+        <ul class="blog-list">
+            <li class="blog-post-item" data-category="tech">
+                <article>
+                    <h2><a href="./posts/javascript-async.html">深入理解JavaScript异步编程</a></h2>
+                    <div class="post-meta">
+                        <time datetime="2024-05-15">2024年5月15日</time>
+                        <span class="post-category">技术</span>
+                    </div>
+                    <p class="post-summary">
+                        探讨JavaScript中的异步编程模式，包括回调、Promise、async/await等内容，帮助开发者更好地理解和使用异步编程...
+                    </p>
+                    <div class="post-footer">
+                        <a href="./posts/javascript-async.html" class="read-more-btn">阅读更多</a>
+                        <div class="post-tags">
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">异步编程</span>
+                            <span class="tag">Promise</span>
+                        </div>
+                    </div>
+                </article>
+            </li>
+            
+            <li class="blog-post-item" data-category="dev">
+                <article>
+                    <h2><a href="./posts/react-performance.html">React性能优化实践</a></h2>
+                    <div class="post-meta">
+                        <time datetime="2024-05-14">2024年5月14日</time>
+                        <span class="post-category">开发</span>
+                    </div>
+                    <p class="post-summary">
+                        分享在React项目中常用的性能优化技巧和最佳实践，包括组件优化、状态管理、渲染优化等多个方面...
+                    </p>
+                    <div class="post-footer">
+                        <a href="./posts/react-performance.html" class="read-more-btn">阅读更多</a>
+                        <div class="post-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">性能优化</span>
+                            <span class="tag">前端开发</span>
+                        </div>
+                    </div>
+                </article>
+            </li>
+        </ul>
+
+        <!-- 分页导航 -->
+        <nav class="pagination">
+            <a href="#" class="pagination-prev disabled">上一页</a>
+            <span class="pagination-current">1</span>
+            <a href="#" class="pagination-next">下一页</a>
+        </nav>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 我的个人网站. All rights reserved.</p>
+            <p>&copy; 2024 蒋雷霆的博客. All rights reserved.</p>
         </div>
     </footer>
 
@@ -121,6 +123,30 @@
             distractionFreeMode: false
         });
         gitalk.render('gitalk-container');
+
+        // 分类筛选功能
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                
+                // 添加当前按钮的active类
+                button.classList.add('active');
+                
+                const category = button.dataset.category;
+                
+                // 筛选文章
+                document.querySelectorAll('.blog-post-item').forEach(item => {
+                    if (category === 'all' || item.dataset.category === category) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html> 

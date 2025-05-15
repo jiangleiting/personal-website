@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的AI之旅</title>
+    <title>我的个人网站</title>
     <style>
         * {
             margin: 0;
@@ -81,6 +81,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             text-align: center;
             margin-bottom: 2rem;
+            background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
         }
 
         .hero h1 {
@@ -108,6 +109,11 @@
             border-radius: 8px;
             padding: 20px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .post-card:hover {
+            transform: translateY(-5px);
         }
 
         .post-card h3 {
@@ -156,6 +162,11 @@
             background: #f8f9fa;
             padding: 15px;
             border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+
+        .tools-list li:hover {
+            background: #e9ecef;
         }
 
         /* 页脚样式 */
@@ -181,6 +192,10 @@
             .blog-posts {
                 grid-template-columns: 1fr;
             }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
@@ -188,12 +203,12 @@
     <!-- 导航栏 -->
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo">我的AI之旅</a>
+            <a href="#" class="logo">我的个人网站</a>
             <ul class="nav-menu">
                 <li><a href="#home">首页</a></li>
                 <li><a href="#blog">博客</a></li>
                 <li><a href="#about">关于我</a></li>
-                <li><a href="#tools">AI工具</a></li>
+                <li><a href="#projects">项目展示</a></li>
             </ul>
         </nav>
     </header>
@@ -203,32 +218,32 @@
         <div class="container">
             <!-- Hero区域 -->
             <section id="home" class="hero">
-                <h1>探索人工智能的无限可能</h1>
-                <p>记录我的学习心得、分享实用的AI工具与见解</p>
+                <h1>欢迎来到我的个人网站</h1>
+                <p>这里记录我的学习历程和技术分享</p>
             </section>
 
             <!-- 博客文章区域 -->
             <section id="blog">
-                <h2>最新博文</h2>
+                <h2>最新文章</h2>
                 <div class="blog-posts">
                     <article class="post-card">
-                        <h3>初探大型语言模型 (LLM)</h3>
-                        <p class="post-meta">发布于: 2024年1月20日 | 分类: AI基础</p>
-                        <p>今天我开始学习什么是大型语言模型，比如GPT系列。它们是如何工作的，以及它们能用来做什么...</p>
+                        <h3>我的第一篇博客</h3>
+                        <p class="post-meta">发布于: 2024年1月20日 | 分类: 技术</p>
+                        <p>这是我的第一篇博客文章，主要分享我的学习经验和心得...</p>
                         <a href="#" class="read-more-btn">阅读全文</a>
                     </article>
 
                     <article class="post-card">
-                        <h3>AI绘画工具体验</h3>
-                        <p class="post-meta">发布于: 2024年1月18日 | 分类: AI应用</p>
-                        <p>Midjourney的强大超乎想象！我尝试用它生成了一些科幻风格的图片，效果非常惊艳...</p>
+                        <h3>网站开发日志</h3>
+                        <p class="post-meta">发布于: 2024年1月18日 | 分类: 开发</p>
+                        <p>记录我是如何一步步搭建这个个人网站的过程和经验...</p>
                         <a href="#" class="read-more-btn">阅读全文</a>
                     </article>
 
                     <article class="post-card">
-                        <h3>AI学习资源汇总</h3>
-                        <p class="post-meta">发布于: 2024年1月15日 | 分类: 学习资源</p>
-                        <p>整理了一些对AI初学者非常友好的在线课程、书籍和社区，希望能帮助到同样在路上的你...</p>
+                        <h3>学习资源分享</h3>
+                        <p class="post-meta">发布于: 2024年1月15日 | 分类: 资源</p>
+                        <p>整理了一些非常有用的学习资源，包括教程、文档和工具推荐...</p>
                         <a href="#" class="read-more-btn">阅读全文</a>
                     </article>
                 </div>
@@ -237,18 +252,16 @@
             <!-- 关于我区域 -->
             <section id="about" class="about-section">
                 <h2>关于我</h2>
-                <p>你好！我是一个AI爱好者和持续学习者。我创建这个网站是为了记录我的学习过程，分享我在AI领域的探索和发现。</p>
-                <p>我目前正在学习机器学习基础、自然语言处理、AIGC工具应用等。我希望通过这个平台与更多对AI感兴趣的朋友交流，共同进步。</p>
+                <p>你好！我是一名热爱技术的开发者。这个网站是我用来记录学习历程和分享经验的地方。</p>
+                <p>我热衷于学习新技术，喜欢解决问题，希望通过这个平台与更多志同道合的朋友交流。</p>
             </section>
 
-            <!-- AI工具推荐区域 -->
-            <section id="tools" class="tools-section">
-                <h2>推荐的AI工具</h2>
+            <!-- 项目展示区域 -->
+            <section id="projects" class="tools-section">
+                <h2>项目展示</h2>
                 <ul class="tools-list">
-                    <li><strong>文本生成:</strong> ChatGPT, Claude, KimiChat</li>
-                    <li><strong>图像生成:</strong> Midjourney, Stable Diffusion, Leonardo.ai</li>
-                    <li><strong>AI笔记:</strong> Notion AI, Gamma</li>
-                    <li><strong>编程助手:</strong> GitHub Copilot, Amazon CodeWhisperer</li>
+                    <li><strong>个人网站:</strong> 使用HTML、CSS构建的响应式网站</li>
+                    <li><strong>更多项目:</strong> 正在开发中...</li>
                 </ul>
             </section>
         </div>
@@ -257,7 +270,7 @@
     <!-- 页脚 -->
     <footer class="footer">
         <div class="footer-content">
-            <p>© 2024 我的AI之旅. 保留所有权利.</p>
+            <p>© 2024 我的个人网站. 保留所有权利.</p>
         </div>
     </footer>
 </body>

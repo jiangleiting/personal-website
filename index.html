@@ -14,17 +14,20 @@
     <meta property="og:url" content="https://jiangleiting.github.io/personal-website/">
     
     <!-- 性能优化：预加载关键资源 -->
-    <link rel="preload" href="assets/css/style.css" as="style">
-    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="./assets/css/style.css" as="style">
+    <link rel="preload" href="./assets/js/main.js" as="script">
     <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
     
     <!-- PWA支持 -->
-    <link rel="manifest" href="manifest.json">
+    <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#4a9eff">
     
-    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <title>我的个人网站 - 技术探索与生活感悟</title>
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
+    <!-- 添加Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- 延迟加载非关键CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" media="print" onload="this.media='all'">
@@ -33,7 +36,7 @@
     <script>
         if ('serviceWorker' in navigator) {
             window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/sw.js')
+                navigator.serviceWorker.register('./sw.js')
                     .then(registration => {
                         console.log('ServiceWorker registration successful');
                     })
@@ -77,15 +80,20 @@
     
     <header class="header">
         <nav class="nav-container">
-            <a href="/" class="logo">我的网站</a>
+            <a href="./index.html" class="logo">我的网站</a>
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="搜索文章...">
             </div>
             <ul class="nav-menu">
-                <li><a href="/">首页</a></li>
-                <li><a href="/pages/blog.html">博客</a></li>
-                <li><a href="/pages/about.html">关于</a></li>
-                <li><a href="/pages/contact.html">联系</a></li>
+                <li><a href="./index.html">首页</a></li>
+                <li><a href="./pages/blog.html">博客</a></li>
+                <li><a href="./pages/about.html">关于</a></li>
+                <li><a href="./pages/contact.html">联系</a></li>
             </ul>
         </nav>
     </header>
@@ -248,8 +256,8 @@
     
     <!-- 优化脚本加载顺序 -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <script src="assets/js/particles-config.js" defer></script>
-    <script src="assets/js/main.js" defer></script>
+    <script src="./assets/js/particles-config.js" defer></script>
+    <script src="./assets/js/main.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/qrcode.js/qrcode.min.js" defer></script>
 </body>

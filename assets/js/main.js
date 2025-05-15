@@ -5,29 +5,16 @@ document.addEventListener('DOMContentLoaded', function() {
         loadNonCriticalResources();
     }, 2000);
 
-    // 初始化粒子效果
+    // 初始化所有功能
     initParticles();
-    
-    // 初始化搜索功能
     initSearch();
-    
-    // 初始化滚动动画
     initScrollAnimations();
-
-    // 添加页面切换动画
     initPageTransitions();
-
-    // 初始化导航菜单
     initMobileMenu();
-    
-    // 初始化滚动效果
     initScrollEffects();
-    
-    // 初始化表单验证
     initFormValidation();
-    
-    // 初始化懒加载
     initLazyLoading();
+    initThemeToggle();
 });
 
 // 延迟加载非关键资源
@@ -39,7 +26,7 @@ function loadNonCriticalResources() {
     document.head.appendChild(fontAwesome);
 
     // 预加载其他页面
-    const pages = ['/pages/blog.html', '/pages/about.html', '/pages/contact.html'];
+    const pages = ['./pages/blog.html', './pages/about.html', './pages/contact.html'];
     pages.forEach(page => {
         const link = document.createElement('link');
         link.rel = 'prefetch';
@@ -50,69 +37,71 @@ function loadNonCriticalResources() {
 
 // 初始化粒子效果
 function initParticles() {
-    particlesJS('particles-js', {
-        particles: {
-            number: {
-                value: 80,
-                density: {
+    if (typeof particlesJS !== 'undefined') {
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#ffffff'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
                     enable: true,
-                    value_area: 800
+                    distance: 150,
+                    color: '#ffffff',
+                    opacity: 0.4,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
                 }
             },
-            color: {
-                value: '#ffffff'
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
             },
-            shape: {
-                type: 'circle'
-            },
-            opacity: {
-                value: 0.5,
-                random: false
-            },
-            size: {
-                value: 3,
-                random: true
-            },
-            line_linked: {
-                enable: true,
-                distance: 150,
-                color: '#ffffff',
-                opacity: 0.4,
-                width: 1
-            },
-            move: {
-                enable: true,
-                speed: 2,
-                direction: 'none',
-                random: false,
-                straight: false,
-                out_mode: 'out',
-                bounce: false
-            }
-        },
-        interactivity: {
-            detect_on: 'canvas',
-            events: {
-                onhover: {
-                    enable: true,
-                    mode: 'grab'
-                },
-                onclick: {
-                    enable: true,
-                    mode: 'push'
-                },
-                resize: true
-            }
-        },
-        retina_detect: true
-    });
+            retina_detect: true
+        });
+    }
 }
 
 // 初始化搜索功能
 function initSearch() {
     const searchInput = document.querySelector('.search-input');
     if (searchInput) {
-        searchInput.addEventListener('input', function(e) {
+        searchInput.addEventListener('input', debounce(function(e) {
             const searchTerm = e.target.value.toLowerCase();
             const posts = document.querySelectorAll('.post-card');
             
@@ -126,7 +115,7 @@ function initSearch() {
                     post.style.display = 'none';
                 }
             });
-        });
+        }, 300));
     }
 }
 
@@ -173,8 +162,8 @@ document.head.appendChild(style);
 // 添加页面切换动画
 function initPageTransitions() {
     document.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', function(e) {
-            if (link.hostname === window.location.hostname) {
+        if (link.hostname === window.location.hostname) {
+            link.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = link.href;
                 
@@ -183,8 +172,8 @@ function initPageTransitions() {
                 setTimeout(() => {
                     window.location.href = target;
                 }, 300);
-            }
-        });
+            });
+        }
     });
 }
 
@@ -486,29 +475,39 @@ function shareToTwitter(title, url) {
 }
 
 // 主题切换功能
-const themeToggle = document.querySelector('.theme-toggle');
-const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+function initThemeToggle() {
+    const themeToggle = document.querySelector('.theme-toggle');
+    const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-if (themeToggle) {
-    // 检查本地存储中的主题设置
-    const currentTheme = localStorage.getItem('theme');
-    if (currentTheme) {
-        document.documentElement.setAttribute('data-theme', currentTheme);
-        updateThemeIcon(currentTheme);
-    } else if (prefersDarkScheme.matches) {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        updateThemeIcon('dark');
-    }
-    
-    // 切换主题
-    themeToggle.addEventListener('click', () => {
-        let theme = document.documentElement.getAttribute('data-theme');
-        let newTheme = theme === 'dark' ? 'light' : 'dark';
+    if (themeToggle) {
+        // 检查本地存储中的主题设置
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+        } else if (prefersDarkScheme.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            updateThemeIcon('dark');
+        }
         
-        document.documentElement.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-    });
+        // 切换主题
+        themeToggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            let newTheme = theme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
+        // 监听系统主题变化
+        prefersDarkScheme.addEventListener('change', (e) => {
+            const newTheme = e.matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+    }
 }
 
 // 更新主题图标
@@ -517,12 +516,4 @@ function updateThemeIcon(theme) {
     if (icon) {
         icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
     }
-}
-
-// 监听系统主题变化
-prefersDarkScheme.addEventListener('change', (e) => {
-    const newTheme = e.matches ? 'dark' : 'light';
-    document.documentElement.setAttribute('data-theme', newTheme);
-    localStorage.setItem('theme', newTheme);
-    updateThemeIcon(newTheme);
-}); 
+} 

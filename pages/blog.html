@@ -4,20 +4,30 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="蒋雷霆的博客 - 分享Web开发、前端技术、全栈开发经验以及个人成长心得的技术博客。">
-    <meta name="keywords" content="博客,技术博客,Web开发,前端开发,全栈开发,个人成长">
+    <meta name="description" content="蒋雷霆的技术博客 - 分享Web开发、人工智能等技术文章">
+    <meta name="keywords" content="技术博客,Web开发,AI,编程,全栈开发">
     <meta name="author" content="蒋雷霆">
     
-    <title>博客 - 蒋雷霆的技术分享</title>
+    <!-- 预加载关键资源 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
+    <title>博客 - 蒋雷霆的技术分享</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="../assets/js/particles-config.js" defer></script>
-    <script src="../assets/js/main.js" defer></script>
 </head>
 <body>
     <div id="particles-js"></div>
+    
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- 阅读进度条 -->
+    <div class="progress-bar" id="readingProgress"></div>
     
     <header class="header">
         <nav class="nav-container">
@@ -30,97 +40,177 @@
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="搜索文章...">
             </div>
-            <ul class="nav-menu">
+            <div class="nav-menu">
                 <li><a href="../index.html">首页</a></li>
-                <li><a href="./blog.html">博客</a></li>
+                <li><a href="./blog.html" class="active">博客</a></li>
                 <li><a href="./about.html">关于</a></li>
                 <li><a href="./contact.html">联系</a></li>
-            </ul>
+                <li>
+                    <button class="theme-toggle" aria-label="切换主题">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </div>
         </nav>
     </header>
 
-    <main class="content-container">
-        <h1 class="page-title">博客文章</h1>
-        
-        <div class="category-filter">
-            <button class="filter-btn active" data-category="all">全部</button>
-            <button class="filter-btn" data-category="tech">技术</button>
-            <button class="filter-btn" data-category="dev">开发</button>
-            <button class="filter-btn" data-category="life">生活</button>
-        </div>
-
-        <div class="blog-list">
-            <article class="blog-post-item" data-category="tech">
-                <h2><a href="./posts/javascript-async.html">深入理解JavaScript异步编程</a></h2>
-                <div class="post-meta">
-                    <time datetime="2024-05-15">2024年5月15日</time>
-                    <span class="post-category">技术</span>
-                </div>
-                <p class="post-summary">
-                    探讨JavaScript中的异步编程模式，包括回调、Promise、async/await等内容，帮助开发者更好地理解和使用异步编程...
-                </p>
-                <div class="post-footer">
-                    <a href="./posts/javascript-async.html" class="read-more-btn">阅读更多</a>
-                    <div class="post-tags">
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">异步编程</span>
-                        <span class="tag">Promise</span>
+    <main class="main-content">
+        <div class="container">
+            <section class="blog-section">
+                <h1 class="page-title">技术博客</h1>
+                <div class="blog-filters">
+                    <div class="filter-tags">
+                        <button class="tag-btn active" data-tag="all">全部</button>
+                        <button class="tag-btn" data-tag="web">Web开发</button>
+                        <button class="tag-btn" data-tag="ai">人工智能</button>
+                        <button class="tag-btn" data-tag="programming">编程技巧</button>
                     </div>
                 </div>
-            </article>
-            
-            <article class="blog-post-item" data-category="dev">
-                <h2><a href="./posts/react-performance.html">React性能优化实践</a></h2>
-                <div class="post-meta">
-                    <time datetime="2024-05-14">2024年5月14日</time>
-                    <span class="post-category">开发</span>
-                </div>
-                <p class="post-summary">
-                    分享在React项目中常用的性能优化技巧和最佳实践，包括组件优化、状态管理、渲染优化等多个方面...
-                </p>
-                <div class="post-footer">
-                    <a href="./posts/react-performance.html" class="read-more-btn">阅读更多</a>
-                    <div class="post-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">性能优化</span>
-                        <span class="tag">前端开发</span>
-                    </div>
-                </div>
-            </article>
-        </div>
+                
+                <div class="blog-grid">
+                    <!-- 示例文章 -->
+                    <article class="blog-card" data-tags="web,programming">
+                        <div class="blog-card-image">
+                            <img src="../assets/images/blog/web-dev.jpg" alt="Web开发最佳实践" loading="lazy">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-tags">
+                                <span class="tag">Web开发</span>
+                                <span class="tag">编程技巧</span>
+                            </div>
+                            <h2>Web开发最佳实践：从入门到精通</h2>
+                            <p class="blog-card-excerpt">
+                                探讨现代Web开发中的关键概念和最佳实践，包括响应式设计、性能优化和安全性考虑...
+                            </p>
+                            <div class="blog-card-meta">
+                                <span class="date"><i class="far fa-calendar"></i> 2024-05-15</span>
+                                <span class="read-time"><i class="far fa-clock"></i> 15分钟阅读</span>
+                            </div>
+                            <a href="./blog/web-development-best-practices.html" class="read-more-btn">阅读全文</a>
+                        </div>
+                    </article>
 
-        <nav class="pagination">
-            <a href="#" class="pagination-prev disabled">上一页</a>
-            <span class="pagination-current">1</span>
-            <a href="#" class="pagination-next">下一页</a>
-        </nav>
+                    <article class="blog-card" data-tags="ai">
+                        <div class="blog-card-image">
+                            <img src="../assets/images/blog/ai-trends.jpg" alt="AI发展趋势" loading="lazy">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-tags">
+                                <span class="tag">人工智能</span>
+                            </div>
+                            <h2>2024年人工智能发展趋势分析</h2>
+                            <p class="blog-card-excerpt">
+                                深入探讨人工智能领域的最新发展趋势，包括大语言模型、计算机视觉和强化学习的突破...
+                            </p>
+                            <div class="blog-card-meta">
+                                <span class="date"><i class="far fa-calendar"></i> 2024-05-10</span>
+                                <span class="read-time"><i class="far fa-clock"></i> 20分钟阅读</span>
+                            </div>
+                            <a href="./blog/ai-trends-2024.html" class="read-more-btn">阅读全文</a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card" data-tags="programming">
+                        <div class="blog-card-image">
+                            <img src="../assets/images/blog/code-review.jpg" alt="代码审查技巧" loading="lazy">
+                        </div>
+                        <div class="blog-card-content">
+                            <div class="blog-card-tags">
+                                <span class="tag">编程技巧</span>
+                            </div>
+                            <h2>高效的代码审查技巧</h2>
+                            <p class="blog-card-excerpt">
+                                分享多年工程经验中总结的代码审查最佳实践，如何提高代码质量和团队协作效率...
+                            </p>
+                            <div class="blog-card-meta">
+                                <span class="date"><i class="far fa-calendar"></i> 2024-05-05</span>
+                                <span class="read-time"><i class="far fa-clock"></i> 12分钟阅读</span>
+                            </div>
+                            <a href="./blog/code-review-tips.html" class="read-more-btn">阅读全文</a>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 分页 -->
+                <div class="pagination">
+                    <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="pagination-btn active">1</button>
+                    <button class="pagination-btn">2</button>
+                    <button class="pagination-btn">3</button>
+                    <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </section>
+        </div>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 蒋雷霆的博客. All rights reserved.</p>
+            <p>&copy; 2024 蒋雷霆的个人网站. All rights reserved.</p>
         </div>
     </footer>
 
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../assets/js/particles-config.js"></script>
+    <script src="../assets/js/main.js"></script>
+    
     <script>
-        // 分类筛选功能
-        document.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.filter-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                button.classList.add('active');
-                
-                const category = button.dataset.category;
-                document.querySelectorAll('.blog-post-item').forEach(item => {
-                    if (category === 'all' || item.dataset.category === category) {
-                        item.style.display = 'block';
-                    } else {
-                        item.style.display = 'none';
-                    }
+        // 博客页面特定的JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // 标签筛选功能
+            const filterButtons = document.querySelectorAll('.tag-btn');
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const tag = button.getAttribute('data-tag');
+                    
+                    // 更新按钮状态
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    
+                    // 筛选文章
+                    blogCards.forEach(card => {
+                        const cardTags = card.getAttribute('data-tags').split(',');
+                        if (tag === 'all' || cardTags.includes(tag)) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
                 });
             });
+            
+            // 搜索功能
+            const searchInput = document.querySelector('.search-input');
+            searchInput.addEventListener('input', debounce(function(e) {
+                const searchTerm = e.target.value.toLowerCase();
+                
+                blogCards.forEach(card => {
+                    const title = card.querySelector('h2').textContent.toLowerCase();
+                    const excerpt = card.querySelector('.blog-card-excerpt').textContent.toLowerCase();
+                    
+                    if (title.includes(searchTerm) || excerpt.includes(searchTerm)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            }, 300));
         });
+
+        // 防抖函数
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
     </script>
 </body>
 </html> 

@@ -191,6 +191,26 @@
             <p>&copy; 2024 我的个人网站. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="./assets/js/particles-config.js"></script>
+    <script src="./assets/js/main.js"></script>
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VWXV2Q40XH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VWXV2Q40XH');
+    </script>
+
     <script>
         // 评论区配置
         const gitalk = new Gitalk({
@@ -323,12 +343,5 @@
             updateThemeIcon(newTheme);
         });
     </script>
-    
-    <!-- 优化脚本加载顺序 -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
-    <script src="./assets/js/particles-config.js" defer></script>
-    <script src="./assets/js/main.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/qrcode.js/qrcode.min.js" defer></script>
 </body>
 </html>

@@ -2,9 +2,12 @@
 :root {
     --primary-color: #6C63FF;
     --secondary-color: #FF6B6B;
+    --accent-color: #4CAF50;
     --bg-color: #FAFAFA;
     --text-color: #2D3436;
+    --text-secondary: #718096;
     --gradient-1: linear-gradient(135deg, #6C63FF 0%, #FF6B6B 100%);
+    --gradient-2: linear-gradient(135deg, #4CAF50 0%, #2196F3 100%);
     --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     --card-bg: #fff;
     --border-color: #eaeaea;
@@ -15,7 +18,9 @@
 [data-theme="dark"] {
     --primary-color: #61dafb;
     --secondary-color: #a8b2d1;
+    --accent-color: #4CAF50;
     --text-color: #e2e8f0;
+    --text-secondary: #a0aec0;
     --bg-color: #1a202c;
     --card-bg: #2d3748;
     --border-color: #4a5568;
@@ -33,7 +38,13 @@ body {
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--bg-color);
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
 }
 
 /* 导航栏样式 */
@@ -46,6 +57,12 @@ body {
     background: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+[data-theme="dark"] .header {
+    background: rgba(26, 32, 44, 0.9);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .nav-container {
@@ -64,6 +81,13 @@ body {
     color: var(--text-color);
 }
 
+.gradient-text {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
 .nav-menu {
     display: flex;
     align-items: center;
@@ -74,14 +98,15 @@ body {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
     position: relative;
+    padding: 0.5rem 1rem;
 }
 
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: 0;
     left: 0;
     width: 0;
     height: 2px;
@@ -94,27 +119,175 @@ body {
     width: 100%;
 }
 
-/* 搜索框样式 */
-.search-container {
-    position: relative;
-    margin: 0 2rem;
-}
-
-.search-input {
-    padding: 0.5rem 1rem;
-    border: 1px solid var(--border-color);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    width: 200px;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-}
-
 /* 主要内容区域 */
 .main-content {
     max-width: 1200px;
     margin: 6rem auto 2rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* 标题样式 */
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.section-description {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-subtitle {
+    font-size: 2rem;
+    margin: 3rem 0 1.5rem;
+    color: var(--text-color);
+}
+
+/* 按钮样式 */
+.primary-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: var(--gradient-1);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(108, 99, 255, 0.2);
+}
+
+.secondary-btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--primary-color);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: 2px solid var(--primary-color);
+    cursor: pointer;
+}
+
+.secondary-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* 主题切换按钮 */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: rotate(180deg);
+}
+
+/* 移动端菜单按钮 */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1000;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--text-color);
+    margin: 5px 0;
+    transition: all 0.3s ease;
+}
+
+/* 粒子背景 */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        max-width: 300px;
+        height: 100vh;
+        background: var(--card-bg);
+        padding: 6rem 2rem 2rem;
+        flex-direction: column;
+        gap: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: -10px 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-menu.active {
+        right: 0;
+    }
+
+    .nav-link::after {
+        display: none;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+
+    .section-description {
+        font-size: 1rem;
+    }
+}
+
+/* 动画效果 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    animation: fadeIn 0.6s ease forwards;
 }
 
 /* 博客卡片网格 */
@@ -173,7 +346,6 @@ body {
 }
 
 .blog-card h2 {
-    font-family: 'Montserrat', sans-serif;
     font-size: 1.25rem;
     margin-bottom: 1rem;
     color: var(--text-color);
@@ -295,45 +467,6 @@ body {
     background-color: var(--primary-color);
     z-index: 1001;
     transition: width 0.3s ease;
-}
-
-/* 响应式设计 */
-@media (max-width: 768px) {
-    .nav-container {
-        flex-wrap: wrap;
-    }
-    
-    .nav-menu {
-        position: fixed;
-        top: 70px;
-        left: 0;
-        right: 0;
-        background: rgba(255, 255, 255, 0.95);
-        padding: 2rem;
-        flex-direction: column;
-        gap: 1.5rem;
-        transform: translateY(-100%);
-        opacity: 0;
-        transition: all 0.3s ease;
-    }
-    
-    .nav-menu.active {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    
-    .search-container {
-        width: 100%;
-        margin: 1rem 0;
-    }
-    
-    .search-input {
-        width: 100%;
-    }
-    
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* 主题切换按钮 */

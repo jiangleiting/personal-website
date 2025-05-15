@@ -256,6 +256,18 @@ document.addEventListener('click', (e) => {
 });
 
 // Theme toggle
+function updateThemeIcon(theme) {
+    const icon = themeToggle.querySelector('i');
+    if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+}
+
+// Check for saved theme preference
 const currentTheme = localStorage.getItem('theme');
 if (currentTheme) {
     document.documentElement.setAttribute('data-theme', currentTheme);
@@ -265,6 +277,7 @@ if (currentTheme) {
     updateThemeIcon('dark');
 }
 
+// Theme toggle click handler
 themeToggle.addEventListener('click', () => {
     let theme = document.documentElement.getAttribute('data-theme');
     let newTheme = theme === 'dark' ? 'light' : 'dark';
@@ -273,11 +286,6 @@ themeToggle.addEventListener('click', () => {
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
 });
-
-function updateThemeIcon(theme) {
-    const icon = themeToggle.querySelector('i');
-    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-}
 
 // Floating cards animation
 cards.forEach(card => {
@@ -291,31 +299,65 @@ cards.forEach(card => {
 });
 
 // Scroll animations
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('animate');
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach(element => {
+        const elementTop = element.getBoundingClientRect().top;
+        const elementBottom = element.getBoundingClientRect().bottom;
+        const isVisible = (elementTop < window.innerHeight - 100) && (elementBottom > 0);
+        
+        if (isVisible) {
+            element.style.animationDelay = '0.2s';
+            element.style.animationPlayState = 'running';
         }
     });
-}, {
-    threshold: 0.1
-});
+};
 
-document.querySelectorAll('.animate-on-scroll').forEach((el) => observer.observe(el));
+// Initial check for elements in view
+document.addEventListener('DOMContentLoaded', animateOnScroll);
+window.addEventListener('scroll', animateOnScroll);
 
-// Page transitions
-document.addEventListener('DOMContentLoaded', () => {
-    document.body.classList.add('page-loaded');
-});
+// Back to top button
+const backToTopButton = document.getElementById('backToTop');
+if (backToTopButton) {
+    window.addEventListener('scroll', () => {
+        if (window.pageYOffset > 300) {
+            backToTopButton.classList.add('visible');
+        } else {
+            backToTopButton.classList.remove('visible');
+        }
+    });
 
-// Link prefetching
-document.addEventListener('mouseover', e => {
-    if (e.target.tagName === 'A' && e.target.href) {
-        const link = document.createElement('link');
-        link.rel = 'prefetch';
-        link.href = e.target.href;
-        document.head.appendChild(link);
-    }
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+}
+
+// Reading progress bar
+const progressBar = document.getElementById('readingProgress');
+if (progressBar) {
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
+}
+
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    });
 });
 
 // 移动端菜单

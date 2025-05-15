@@ -4,104 +4,233 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="关于蒋雷霆 - 全栈开发者和AI爱好者">
+    <meta name="keywords" content="个人简介,技术栈,项目经验">
+    <meta name="author" content="蒋雷霆">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="icon" href="../assets/images/favicon.ico" type="image/x-icon">
     <title>关于 - 蒋雷霆的个人网站</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="../assets/js/particles-config.js"></script>
-    <script src="../assets/js/main.js"></script>
+    
+    <style>
+        .about-section {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .profile-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 1.5rem;
+            border: 4px solid transparent;
+            background: var(--gradient-1);
+            padding: 4px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .skill-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: var(--card-shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card i {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 600px;
+            margin: 2rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: var(--gradient-1);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+
+        .timeline-content {
+            position: relative;
+            width: calc(50% - 30px);
+            padding: 1.5rem;
+            background: var(--card-bg);
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content {
+            margin-left: auto;
+        }
+
+        .timeline-date {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gradient-1);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .timeline::before {
+                left: 30px;
+            }
+
+            .timeline-content {
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+
+            .timeline-date {
+                left: 30px;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
 </head>
 <body>
     <div id="particles-js"></div>
     
     <header class="header">
         <nav class="nav-container">
-            <a href="../index.html" class="logo">我的网站</a>
-            <div class="menu-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <a href="../index.html" class="logo">
+                <span class="gradient-text">JLT</span>
+            </a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">首页</a>
+                <a href="./projects.html" class="nav-link">项目</a>
+                <a href="./blog.html" class="nav-link">博客</a>
+                <a href="./about.html" class="nav-link active">关于</a>
+                <a href="./contact.html" class="nav-link">联系</a>
+                <button class="theme-toggle" aria-label="切换主题">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="搜索文章...">
-            </div>
-            <ul class="nav-menu">
-                <li><a href="../index.html">首页</a></li>
-                <li><a href="./blog.html">博客</a></li>
-                <li><a href="./about.html">关于</a></li>
-                <li><a href="./contact.html">联系</a></li>
-            </ul>
+            <button class="menu-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </nav>
     </header>
 
     <main class="main-content">
         <div class="container">
-            <nav class="breadcrumb">
-                <div class="breadcrumb-item"><a href="../index.html">首页</a></div>
-                <div class="breadcrumb-item active">关于</div>
-            </nav>
-
             <section class="about-section">
-                <h2>关于我</h2>
+                <div class="profile-header">
+                    <div class="profile-image">
+                        <img src="../assets/images/profile.jpg" alt="蒋雷霆的照片">
+                    </div>
+                    <h1 class="section-title">
+                        <span class="gradient-text">关于我</span>
+                    </h1>
+                    <p class="section-description">热爱技术，追求创新的全栈开发者</p>
+                </div>
+
                 <div class="about-content">
-                    <div class="about-text">
-                        <p>你好！我是蒋雷霆，一名热爱技术的全栈开发者。我热衷于学习新技术，解决复杂问题，并乐于分享我的经验和见解。</p>
-                        <p>我的技术栈包括：</p>
-                        <ul class="skills-list">
-                            <li><i class="fab fa-html5"></i> HTML5, CSS3, JavaScript</li>
-                            <li><i class="fab fa-react"></i> React, Vue</li>
-                            <li><i class="fab fa-node-js"></i> Node.js, Python, Java</li>
-                            <li><i class="fas fa-database"></i> MySQL, MongoDB, Redis</li>
-                            <li><i class="fab fa-docker"></i> Git, Docker, Kubernetes</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
+                    <p class="about-text">
+                        你好！我是蒋雷霆，一名充满激情的全栈开发者。我专注于Web开发和人工智能领域，
+                        致力于将创新技术转化为实用的解决方案。
+                    </p>
 
-            <section class="experience-section">
-                <h2>工作经历</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-date">2023 - 至今</div>
-                        <div class="timeline-content">
-                            <h3><i class="fas fa-laptop-code"></i> 高级全栈开发工程师</h3>
-                            <p>负责公司核心产品的架构设计和开发工作，带领团队完成多个重要项目。</p>
+                    <h2 class="section-subtitle">技术栈</h2>
+                    <div class="skills-grid">
+                        <div class="skill-card">
+                            <i class="fab fa-react"></i>
+                            <h3>前端开发</h3>
+                            <p>React, Vue, TypeScript</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fab fa-node-js"></i>
+                            <h3>后端开发</h3>
+                            <p>Node.js, Python, Java</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-database"></i>
+                            <h3>数据库</h3>
+                            <p>MySQL, MongoDB, Redis</p>
+                        </div>
+                        <div class="skill-card">
+                            <i class="fas fa-brain"></i>
+                            <h3>人工智能</h3>
+                            <p>TensorFlow, PyTorch</p>
                         </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2021 - 2023</div>
-                        <div class="timeline-content">
-                            <h3><i class="fas fa-code"></i> 前端开发工程师</h3>
-                            <p>参与大型Web应用的开发，负责用户界面的设计和实现。</p>
-                        </div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-date">2019 - 2021</div>
-                        <div class="timeline-content">
-                            <h3><i class="fas fa-terminal"></i> 初级开发工程师</h3>
-                            <p>参与公司产品的开发和维护工作，积累了丰富的实践经验。</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
 
-            <section class="projects-section">
-                <h2>个人项目</h2>
-                <div class="project-grid">
-                    <div class="project-card">
-                        <h3><i class="fas fa-blog"></i> 个人博客系统</h3>
-                        <p>使用React和Node.js开发的现代化博客系统，支持Markdown编辑和实时预览。</p>
-                        <div class="project-links">
-                            <a href="https://jiangleiting.github.io/personal-website/" class="read-more-btn">查看项目</a>
-                            <a href="https://github.com/jiangleiting/personal-website" class="github-btn"><i class="fab fa-github"></i> GitHub</a>
+                    <h2 class="section-subtitle">工作经历</h2>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2023 - 至今</div>
+                            <div class="timeline-content">
+                                <h3>高级全栈开发工程师</h3>
+                                <p>负责公司核心产品的架构设计和开发工作，带领团队完成多个重要项目。</p>
+                            </div>
                         </div>
-                    </div>
-                    <div class="project-card">
-                        <h3><i class="fas fa-sticky-note"></i> 在线笔记应用</h3>
-                        <p>基于Vue和Express的在线笔记应用，支持多人协作和实时同步。</p>
-                        <div class="project-links">
-                            <a href="#" class="read-more-btn">查看项目</a>
-                            <a href="#" class="github-btn"><i class="fab fa-github"></i> GitHub</a>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2021 - 2023</div>
+                            <div class="timeline-content">
+                                <h3>前端开发工程师</h3>
+                                <p>参与大型Web应用的开发，负责用户界面的设计和实现。</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2019 - 2021</div>
+                            <div class="timeline-content">
+                                <h3>初级开发工程师</h3>
+                                <p>参与公司产品的开发和维护工作，积累了丰富的实践经验。</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -114,5 +243,10 @@
             <p>&copy; 2024 蒋雷霆的个人网站. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../assets/js/particles-config.js"></script>
+    <script src="../assets/js/main.js"></script>
 </body>
 </html> 

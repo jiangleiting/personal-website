@@ -94,12 +94,17 @@
             <div class="search-container">
                 <input type="text" class="search-input" placeholder="搜索文章...">
             </div>
-            <ul class="nav-menu">
+            <div class="nav-menu">
                 <li><a href="./index.html">首页</a></li>
                 <li><a href="./pages/blog.html">博客</a></li>
                 <li><a href="./pages/about.html">关于</a></li>
                 <li><a href="./pages/contact.html">联系</a></li>
-            </ul>
+                <li>
+                    <button class="theme-toggle" aria-label="切换主题">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </div>
         </nav>
     </header>
 
@@ -274,6 +279,48 @@
                 const platform = this.querySelector('i').className.includes('weibo') ? 'Weibo' : 'Twitter';
                 trackEvent('Share', 'Click', platform);
             });
+        });
+
+        // 主题切换功能
+        const themeToggle = document.querySelector('.theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // 检查本地存储中的主题设置
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+        } else if (prefersDarkScheme.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            updateThemeIcon('dark');
+        }
+        
+        // 切换主题
+        themeToggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            let newTheme = theme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        // 更新主题图标
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        }
+        
+        // 监听系统主题变化
+        prefersDarkScheme.addEventListener('change', (e) => {
+            const newTheme = e.matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
         });
     </script>
     

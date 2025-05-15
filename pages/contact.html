@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系 - 我的个人网站</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../assets/js/particles-config.js"></script>
+    <script src="../assets/js/main.js"></script>
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="/" class="logo">我的网站</a>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="搜索文章...">
+            </div>
+            <ul class="nav-menu">
+                <li><a href="/">首页</a></li>
+                <li><a href="/pages/blog.html">博客</a></li>
+                <li><a href="/pages/about.html">关于</a></li>
+                <li><a href="/pages/contact.html">联系</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <nav class="breadcrumb">
+                <div class="breadcrumb-item"><a href="/">首页</a></div>
+                <div class="breadcrumb-item active">联系</div>
+            </nav>
+
+            <section class="contact-section">
+                <h2>联系我</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <h3>联系方式</h3>
+                        <ul class="contact-list">
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>邮箱：jiangleiting1@gmail.com</span>
+                            </li>
+                            <li>
+                                <i class="fab fa-github"></i>
+                                <span>GitHub：<a href="https://github.com/jiangleiting" target="_blank">github.com/jiangleiting</a></span>
+                            </li>
+                            <li>
+                                <i class="fab fa-weixin"></i>
+                                <span>微信：jiangleiting</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="contact-form">
+                        <h3>给我留言</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">姓名</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">邮箱</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">主题</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">消息</label>
+                                <textarea id="message" name="message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">发送消息</button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <section class="faq-section">
+                <h2>常见问题</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <h3>如何订阅博客更新？</h3>
+                        <p>你可以通过关注我的GitHub或订阅RSS feed来获取最新的博客更新。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>是否提供技术咨询？</h3>
+                        <p>是的，我很乐意提供技术咨询服务。你可以通过上面的联系方式与我取得联系。</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>如何参与项目协作？</h3>
+                        <p>你可以在GitHub上fork我的项目，提交pull request，或者直接与我联系讨论合作机会。</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 我的个人网站. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // 表单提交处理
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // 这里添加表单提交逻辑
+            alert('感谢您的留言！我会尽快回复。');
+            this.reset();
+        });
+    </script>
+</body>
+</html> 

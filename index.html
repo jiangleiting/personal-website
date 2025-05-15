@@ -4,380 +4,253 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的个人网站</title>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+    <meta name="description" content="这是一个记录技术探索和生活感悟的个人网站，分享Web开发、编程技术和个人成长经验。">
+    <meta name="keywords" content="个人网站,技术博客,Web开发,编程,全栈开发">
+    <meta name="author" content="姜乐廷">
+    <meta name="robots" content="index,follow">
+    <meta property="og:title" content="我的个人网站">
+    <meta property="og:description" content="这是一个记录技术探索和生活感悟的个人网站">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://jiangleiting.github.io/personal-website/">
+    
+    <!-- 性能优化：预加载关键资源 -->
+    <link rel="preload" href="assets/css/style.css" as="style">
+    <link rel="preload" href="assets/js/main.js" as="script">
+    <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
+    
+    <!-- PWA支持 -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4a9eff">
+    
+    <link rel="icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <title>我的个人网站 - 技术探索与生活感悟</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- 延迟加载非关键CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" media="print" onload="this.media='all'">
+    
+    <!-- 添加Service Worker注册 -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registration successful');
+                    })
+                    .catch(err => {
+                        console.log('ServiceWorker registration failed: ', err);
+                    });
+            });
         }
+    </script>
 
-        body {
-            font-family: 'Microsoft YaHei', '微软雅黑', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #a06cd5);
-            background-size: 400% 400%;
-            animation: gradient 15s ease infinite;
-            position: relative;
-        }
-
-        @keyframes gradient {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
-        }
-
-        #particles-js {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-
-        /* 导航栏样式 */
-        .header {
-            background-color: rgba(26, 26, 26, 0.9);
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
-        }
-
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .logo {
-            color: #ffffff;
-            font-size: 1.5rem;
-            font-weight: bold;
-            text-decoration: none;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-        }
-
-        .nav-menu a:hover {
-            color: #4a9eff;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* 主要内容区域 */
-        .main-content {
-            flex: 1;
-            padding: 2rem 0;
-            position: relative;
-            z-index: 2;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        .hero {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4px);
-            margin-bottom: 2rem;
-            text-align: center;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .hero h1 {
-            color: #333;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .hero p {
-            color: #666;
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-        }
-
-        /* 文章卡片样式 */
-        .blog-posts {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .post-card {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 20px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4px);
-            transition: transform 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .post-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .post-card h3 {
-            color: #333;
-            margin-bottom: 1rem;
-        }
-
-        .post-meta {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .read-more-btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #4a9eff, #6c63ff);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .read-more-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        /* 关于和工具部分 */
-        .about-section, .tools-section {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 15px;
-            padding: 30px;
-            margin-bottom: 2rem;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
-            backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .tools-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .tools-list li {
-            background: rgba(248, 249, 250, 0.9);
-            padding: 15px;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.18);
-        }
-
-        .tools-list li:hover {
-            background: rgba(233, 236, 239, 0.9);
-            transform: translateY(-2px);
-        }
-
-        /* 页脚样式 */
-        .footer {
-            background-color: rgba(26, 26, 26, 0.9);
-            color: #ffffff;
-            padding: 1rem 0;
-            margin-top: auto;
-            position: relative;
-            z-index: 2;
-            backdrop-filter: blur(10px);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            padding: 0 20px;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                gap: 1rem;
-            }
-            
-            .blog-posts {
-                grid-template-columns: 1fr;
-            }
-
-            .hero h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VWXV2Q40XH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VWXV2Q40XH');
+    </script>
+    
+    <!-- 百度统计 -->
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
 </head>
 <body>
     <div id="particles-js"></div>
-    <!-- 导航栏 -->
+    
+    <!-- 添加返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+    
+    <!-- 添加阅读进度条 -->
+    <div class="progress-bar" id="readingProgress"></div>
+    
     <header class="header">
         <nav class="nav-container">
-            <a href="#" class="logo">我的个人网站</a>
+            <a href="/" class="logo">我的网站</a>
+            <div class="search-container">
+                <input type="text" class="search-input" placeholder="搜索文章...">
+            </div>
             <ul class="nav-menu">
-                <li><a href="#home">首页</a></li>
-                <li><a href="#blog">博客</a></li>
-                <li><a href="#about">关于我</a></li>
-                <li><a href="#projects">项目展示</a></li>
+                <li><a href="/">首页</a></li>
+                <li><a href="/pages/blog.html">博客</a></li>
+                <li><a href="/pages/about.html">关于</a></li>
+                <li><a href="/pages/contact.html">联系</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- 主要内容 -->
     <main class="main-content">
         <div class="container">
-            <!-- Hero区域 -->
-            <section id="home" class="hero">
+            <section class="hero">
                 <h1>欢迎来到我的个人网站</h1>
-                <p>这里记录我的学习历程和技术分享</p>
+                <p>这里记录我的技术探索和生活感悟</p>
             </section>
 
-            <!-- 博客文章区域 -->
-            <section id="blog">
-                <h2>最新文章</h2>
-                <div class="blog-posts">
-                    <article class="post-card">
-                        <h3>我的第一篇博客</h3>
-                        <p class="post-meta">发布于: 2024年1月20日 | 分类: 技术</p>
-                        <p>这是我的第一篇博客文章，主要分享我的学习经验和心得...</p>
-                        <a href="#" class="read-more-btn">阅读全文</a>
-                    </article>
+            <section class="blog-posts">
+                <article class="post-card">
+                    <h3>文章标题 1</h3>
+                    <div class="post-meta">发布于 2024-05-15</div>
+                    <p>这是一篇关于技术探索的文章...</p>
+                    <div class="post-footer">
+                        <a href="#" class="read-more-btn">阅读更多</a>
+                        <div class="share-buttons">
+                            <button class="share-btn" onclick="shareToWeibo(this)" data-title="文章标题 1" data-url="window.location.href">
+                                <i class="fab fa-weibo"></i>
+                            </button>
+                            <button class="share-btn" onclick="shareToTwitter(this)" data-title="文章标题 1" data-url="window.location.href">
+                                <i class="fab fa-twitter"></i>
+                            </button>
+                            <button class="share-btn" onclick="showQRCode(this)" data-url="window.location.href">
+                                <i class="fas fa-qrcode"></i>
+                            </button>
+                        </div>
+                    </div>
+                </article>
 
-                    <article class="post-card">
-                        <h3>网站开发日志</h3>
-                        <p class="post-meta">发布于: 2024年1月18日 | 分类: 开发</p>
-                        <p>记录我是如何一步步搭建这个个人网站的过程和经验...</p>
-                        <a href="#" class="read-more-btn">阅读全文</a>
-                    </article>
+                <article class="post-card">
+                    <h3>文章标题 2</h3>
+                    <div class="post-meta">发布于 2024-05-14</div>
+                    <p>分享一些有趣的编程经验...</p>
+                    <a href="#" class="read-more-btn">阅读更多</a>
+                </article>
 
-                    <article class="post-card">
-                        <h3>学习资源分享</h3>
-                        <p class="post-meta">发布于: 2024年1月15日 | 分类: 资源</p>
-                        <p>整理了一些非常有用的学习资源，包括教程、文档和工具推荐...</p>
-                        <a href="#" class="read-more-btn">阅读全文</a>
-                    </article>
+                <article class="post-card">
+                    <h3>文章标题 3</h3>
+                    <div class="post-meta">发布于 2024-05-13</div>
+                    <p>记录一次难忘的开发经历...</p>
+                    <a href="#" class="read-more-btn">阅读更多</a>
+                </article>
+            </section>
+            
+            <!-- 添加评论区 -->
+            <section class="comments-section">
+                <h2>评论</h2>
+                <div id="gitalk-container"></div>
+            </section>
+
+            <!-- QR Code Modal -->
+            <div id="qrModal" class="modal">
+                <div class="modal-content">
+                    <span class="close-modal">&times;</span>
+                    <h3>扫描二维码分享</h3>
+                    <div id="qrcode"></div>
                 </div>
-            </section>
-
-            <!-- 关于我区域 -->
-            <section id="about" class="about-section">
-                <h2>关于我</h2>
-                <p>你好！我是一名热爱技术的开发者。这个网站是我用来记录学习历程和分享经验的地方。</p>
-                <p>我热衷于学习新技术，喜欢解决问题，希望通过这个平台与更多志同道合的朋友交流。</p>
-            </section>
-
-            <!-- 项目展示区域 -->
-            <section id="projects" class="tools-section">
-                <h2>项目展示</h2>
-                <ul class="tools-list">
-                    <li><strong>个人网站:</strong> 使用HTML、CSS构建的响应式网站</li>
-                    <li><strong>更多项目:</strong> 正在开发中...</li>
-                </ul>
-            </section>
+            </div>
         </div>
     </main>
 
-    <!-- 页脚 -->
     <footer class="footer">
         <div class="footer-content">
-            <p>© 2024 我的个人网站. 保留所有权利.</p>
+            <p>&copy; 2024 我的个人网站. All rights reserved.</p>
         </div>
     </footer>
-
     <script>
-        particlesJS('particles-js',
-        {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#ffffff"
-                },
-                "shape": {
-                    "type": "circle"
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": false
-                },
-                "size": {
-                    "value": 3,
-                    "random": true
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.4,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 6,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                }
-            },
-            "retina_detect": true
+        // 评论区配置
+        const gitalk = new Gitalk({
+            clientID: 'Ov23lik6kBl3aJWI9Noi', // GitHub OAuth App Client ID
+            clientSecret: '09e7d9ee48ccc50b40cdd9a597e8e171a93b29e8', // GitHub OAuth App Client Secret
+            repo: 'personal-website',      // 存储评论的仓库名
+            owner: 'jiangleiting',         // 您的GitHub用户名
+            admin: ['jiangleiting'],       // 管理员用户名
+            id: location.pathname,         // 页面唯一标识
+            distractionFreeMode: false     // 无干扰模式
+        });
+        gitalk.render('gitalk-container');
+
+        // 分享到微博
+        function shareToWeibo(button) {
+            const title = button.getAttribute('data-title');
+            const url = button.getAttribute('data-url');
+            const shareUrl = `http://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
+            window.open(shareUrl, '_blank', 'width=700,height=500');
+        }
+
+        // 分享到Twitter
+        function shareToTwitter(button) {
+            const title = button.getAttribute('data-title');
+            const url = button.getAttribute('data-url');
+            const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+            window.open(shareUrl, '_blank', 'width=700,height=500');
+        }
+
+        // 显示二维码
+        function showQRCode(button) {
+            const url = button.getAttribute('data-url');
+            const modal = document.getElementById('qrModal');
+            const qrcodeDiv = document.getElementById('qrcode');
+            
+            // 清除已有的二维码
+            qrcodeDiv.innerHTML = '';
+            
+            // 生成新的二维码
+            new QRCode(qrcodeDiv, {
+                text: url,
+                width: 200,
+                height: 200
+            });
+            
+            modal.style.display = 'block';
+        }
+
+        // 关闭二维码模态框
+        document.querySelector('.close-modal').onclick = function() {
+            document.getElementById('qrModal').style.display = 'none';
+        }
+
+        // 点击模态框外部关闭
+        window.onclick = function(event) {
+            const modal = document.getElementById('qrModal');
+            if (event.target == modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        // 添加自定义事件跟踪
+        function trackEvent(category, action, label) {
+            if (window.gtag) {
+                gtag('event', action, {
+                    'event_category': category,
+                    'event_label': label
+                });
+            }
+            if (window._hmt) {
+                _hmt.push(['_trackEvent', category, action, label]);
+            }
+        }
+
+        // 示例：跟踪文章阅读
+        document.querySelectorAll('.read-more-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const title = this.closest('.post-card').querySelector('h3').textContent;
+                trackEvent('Article', 'Read', title);
+            });
+        });
+
+        // 示例：跟踪分享行为
+        document.querySelectorAll('.share-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const platform = this.querySelector('i').className.includes('weibo') ? 'Weibo' : 'Twitter';
+                trackEvent('Share', 'Click', platform);
+            });
         });
     </script>
+    
+    <!-- 优化脚本加载顺序 -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" defer></script>
+    <script src="assets/js/particles-config.js" defer></script>
+    <script src="assets/js/main.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/qrcode.js/qrcode.min.js" defer></script>
 </body>
 </html>

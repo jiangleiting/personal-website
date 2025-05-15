@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://jiangleiting.github.io/personal-website/sitemap.xml
+
+# 不允许爬虫访问的目录
+Disallow: /assets/js/
+Disallow: /assets/css/ 

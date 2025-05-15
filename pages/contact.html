@@ -4,12 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>联系 - 蒋雷霆的个人网站</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <meta name="description" content="联系蒋雷霆 - 技术交流与合作">
+    <title>联系我 - 蒋雷霆的个人网站</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="../assets/js/particles-config.js"></script>
-    <script src="../assets/js/main.js"></script>
+    
+    <!-- 自定义样式 -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 </head>
 <body>
     <div id="particles-js"></div>
@@ -22,49 +29,53 @@
                 <span></span>
                 <span></span>
             </div>
-            <div class="search-container">
-                <input type="text" class="search-input" placeholder="搜索文章...">
-            </div>
-            <ul class="nav-menu">
+            <div class="nav-menu">
                 <li><a href="../index.html">首页</a></li>
                 <li><a href="./blog.html">博客</a></li>
                 <li><a href="./about.html">关于</a></li>
-                <li><a href="./contact.html">联系</a></li>
-            </ul>
+                <li><a href="./contact.html" class="active">联系</a></li>
+                <li>
+                    <button class="theme-toggle" aria-label="切换主题">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </li>
+            </div>
         </nav>
     </header>
 
     <main class="main-content">
         <div class="container">
-            <nav class="breadcrumb">
+            <!-- 面包屑导航 -->
+            <div class="breadcrumb">
                 <div class="breadcrumb-item"><a href="../index.html">首页</a></div>
                 <div class="breadcrumb-item active">联系</div>
-            </nav>
+            </div>
 
             <section class="contact-section">
-                <h2>联系我</h2>
+                <h1 class="section-title">联系我</h1>
+                
                 <div class="contact-content">
                     <div class="contact-info">
-                        <h3>联系方式</h3>
+                        <h2>联系方式</h2>
                         <ul class="contact-list">
                             <li>
                                 <i class="fas fa-envelope"></i>
-                                <span>邮箱：jiangleiting1@gmail.com</span>
+                                <a href="mailto:jiangleiting1@gmail.com">jiangleiting1@gmail.com</a>
                             </li>
                             <li>
                                 <i class="fab fa-github"></i>
-                                <span>GitHub：<a href="https://github.com/jiangleiting" target="_blank">github.com/jiangleiting</a></span>
+                                <a href="https://github.com/jiangleiting" target="_blank">github.com/jiangleiting</a>
                             </li>
                             <li>
                                 <i class="fab fa-weixin"></i>
-                                <span>微信：jiangleiting2008</span>
+                                <span>jiangleiting2008</span>
                             </li>
                         </ul>
                     </div>
 
                     <div class="contact-form">
-                        <h3>给我留言</h3>
-                        <form id="contactForm">
+                        <h2>给我留言</h2>
+                        <form id="contactForm" onsubmit="return handleSubmit(event)">
                             <div class="form-group">
                                 <label for="name">姓名</label>
                                 <input type="text" id="name" name="name" required>
@@ -88,18 +99,18 @@
             </section>
 
             <section class="faq-section">
-                <h2>常见问题</h2>
+                <h2 class="section-title">常见问题</h2>
                 <div class="faq-list">
                     <div class="faq-item">
-                        <h3>如何订阅博客更新？</h3>
+                        <h3><i class="fas fa-rss"></i> 如何订阅博客更新？</h3>
                         <p>你可以通过关注我的GitHub或订阅RSS feed来获取最新的博客更新。</p>
                     </div>
                     <div class="faq-item">
-                        <h3>是否提供技术咨询？</h3>
+                        <h3><i class="fas fa-comments"></i> 是否提供技术咨询？</h3>
                         <p>是的，我很乐意提供技术咨询服务。你可以通过上面的联系方式与我取得联系。</p>
                     </div>
                     <div class="faq-item">
-                        <h3>如何参与项目协作？</h3>
+                        <h3><i class="fas fa-code-branch"></i> 如何参与项目协作？</h3>
                         <p>你可以在GitHub上fork我的项目，提交pull request，或者直接与我联系讨论合作机会。</p>
                     </div>
                 </div>
@@ -113,13 +124,82 @@
         </div>
     </footer>
 
+    <!-- 返回顶部按钮 -->
+    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../assets/js/particles-config.js"></script>
     <script>
+        // 主题切换功能
+        const themeToggle = document.querySelector('.theme-toggle');
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // 检查本地存储中的主题设置
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme) {
+            document.documentElement.setAttribute('data-theme', currentTheme);
+            updateThemeIcon(currentTheme);
+        } else if (prefersDarkScheme.matches) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            updateThemeIcon('dark');
+        }
+        
+        // 切换主题
+        themeToggle.addEventListener('click', () => {
+            let theme = document.documentElement.getAttribute('data-theme');
+            let newTheme = theme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+        
+        // 更新主题图标
+        function updateThemeIcon(theme) {
+            const icon = themeToggle.querySelector('i');
+            if (theme === 'dark') {
+                icon.className = 'fas fa-sun';
+            } else {
+                icon.className = 'fas fa-moon';
+            }
+        }
+        
+        // 监听系统主题变化
+        prefersDarkScheme.addEventListener('change', (e) => {
+            const newTheme = e.matches ? 'dark' : 'light';
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            updateThemeIcon(newTheme);
+        });
+
         // 表单提交处理
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // 这里添加表单提交逻辑
-            alert('感谢您的留言！我会尽快回复。');
-            this.reset();
+        function handleSubmit(event) {
+            event.preventDefault();
+            // 这里可以添加表单提交逻辑
+            alert('消息已发送！我会尽快回复您。');
+            event.target.reset();
+            return false;
+        }
+
+        // 返回顶部按钮
+        const backToTop = document.getElementById('backToTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>

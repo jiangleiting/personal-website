@@ -16,6 +16,18 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 添加页面切换动画
     initPageTransitions();
+
+    // 初始化导航菜单
+    initMobileMenu();
+    
+    // 初始化滚动效果
+    initScrollEffects();
+    
+    // 初始化表单验证
+    initFormValidation();
+    
+    // 初始化懒加载
+    initLazyLoading();
 });
 
 // 延迟加载非关键资源
@@ -314,4 +326,203 @@ document.addEventListener('mouseover', e => {
         link.href = e.target.href;
         document.head.appendChild(link);
     }
+});
+
+// 移动端菜单
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', () => {
+            menuToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+        
+        // 点击菜单项后关闭菜单
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    }
+}
+
+// 滚动效果
+function initScrollEffects() {
+    // 滚动进度条
+    const progressBar = document.querySelector('.progress-bar');
+    if (progressBar) {
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+    
+    // 返回顶部按钮
+    const backToTop = document.getElementById('backToTop');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 100) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+    
+    // 添加滚动动画
+    const animatedElements = document.querySelectorAll('.fade-in-up');
+    if (animatedElements.length > 0) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+        
+        animatedElements.forEach(element => {
+            observer.observe(element);
+        });
+    }
+}
+
+// 表单验证
+function initFormValidation() {
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // 获取表单数据
+            const formData = new FormData(this);
+            const data = {};
+            formData.forEach((value, key) => {
+                data[key] = value;
+            });
+            
+            // 简单的客户端验证
+            if (!validateForm(data)) {
+                return false;
+            }
+            
+            // 这里可以添加发送表单数据的逻辑
+            alert('消息已发送！我会尽快回复您。');
+            this.reset();
+            return false;
+        });
+    }
+}
+
+// 表单验证函数
+function validateForm(data) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    
+    if (!data.name || data.name.length < 2) {
+        alert('请输入有效的姓名（至少2个字符）');
+        return false;
+    }
+    
+    if (!emailRegex.test(data.email)) {
+        alert('请输入有效的邮箱地址');
+        return false;
+    }
+    
+    if (!data.subject || data.subject.length < 5) {
+        alert('请输入有效的主题（至少5个字符）');
+        return false;
+    }
+    
+    if (!data.message || data.message.length < 10) {
+        alert('请输入有效的消息内容（至少10个字符）');
+        return false;
+    }
+    
+    return true;
+}
+
+// 图片懒加载
+function initLazyLoading() {
+    const lazyImages = document.querySelectorAll('img.lazy');
+    
+    if ('IntersectionObserver' in window && lazyImages.length > 0) {
+        const imageObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+        
+        lazyImages.forEach(img => imageObserver.observe(img));
+    }
+}
+
+// 分享功能
+function shareToWeibo(title, url) {
+    const shareUrl = `http://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
+    window.open(shareUrl, '_blank', 'width=700,height=500');
+}
+
+function shareToTwitter(title, url) {
+    const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
+    window.open(shareUrl, '_blank', 'width=700,height=500');
+}
+
+// 主题切换功能
+const themeToggle = document.querySelector('.theme-toggle');
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+if (themeToggle) {
+    // 检查本地存储中的主题设置
+    const currentTheme = localStorage.getItem('theme');
+    if (currentTheme) {
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        updateThemeIcon(currentTheme);
+    } else if (prefersDarkScheme.matches) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+        updateThemeIcon('dark');
+    }
+    
+    // 切换主题
+    themeToggle.addEventListener('click', () => {
+        let theme = document.documentElement.getAttribute('data-theme');
+        let newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateThemeIcon(newTheme);
+    });
+}
+
+// 更新主题图标
+function updateThemeIcon(theme) {
+    const icon = document.querySelector('.theme-toggle i');
+    if (icon) {
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+}
+
+// 监听系统主题变化
+prefersDarkScheme.addEventListener('change', (e) => {
+    const newTheme = e.matches ? 'dark' : 'light';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateThemeIcon(newTheme);
 }); 

@@ -515,4 +515,100 @@ function shareToWeibo(title, url) {
 function shareToTwitter(title, url) {
     const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
     window.open(shareUrl, '_blank', 'width=700,height=500');
-} 
+}
+
+// Lazy Load Images
+document.addEventListener('DOMContentLoaded', () => {
+    const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+    
+    if ('loading' in HTMLImageElement.prototype) {
+        // Browser supports native lazy loading
+        lazyImages.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    } else {
+        // Fallback for browsers that don't support lazy loading
+        const lazyImageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        lazyImages.forEach(img => lazyImageObserver.observe(img));
+    }
+});
+
+// Tool Card Hover Effect
+document.querySelectorAll('.tool-card').forEach(card => {
+    card.addEventListener('mouseenter', () => {
+        card.style.transform = 'translateY(-5px)';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+        card.style.transform = 'translateY(0)';
+    });
+});
+
+// Video Preview Loading Optimization
+document.querySelectorAll('.video-preview iframe').forEach(iframe => {
+    // Replace iframe src with data-src to prevent initial loading
+    iframe.dataset.src = iframe.src;
+    iframe.src = 'about:blank';
+    
+    // Load video when the card comes into view
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const iframe = entry.target;
+                iframe.src = iframe.dataset.src;
+                observer.unobserve(iframe);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    observer.observe(iframe);
+});
+
+// Add active class to current nav link
+function updateActiveNavLink() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    let currentSection = '';
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (window.pageYOffset >= sectionTop - 60) {
+            currentSection = section.getAttribute('id');
+        }
+    });
+    
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+        if (link.getAttribute('href').slice(1) === currentSection) {
+            link.classList.add('active');
+        }
+    });
+}
+
+window.addEventListener('scroll', updateActiveNavLink);
+window.addEventListener('load', updateActiveNavLink);
+
+// Handle external links
+document.querySelectorAll('a[href^="http"]').forEach(link => {
+    // Add external link icon
+    const icon = document.createElement('i');
+    icon.className = 'fas fa-external-link-alt';
+    icon.style.marginLeft = '0.5em';
+    icon.style.fontSize = '0.8em';
+    link.appendChild(icon);
+    
+    // Open in new tab
+    link.setAttribute('target', '_blank');
+    link.setAttribute('rel', 'noopener noreferrer');
+}); 

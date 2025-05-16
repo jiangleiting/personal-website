@@ -14,6 +14,10 @@
     --hover-color: #3498db;
     --header-bg: rgba(255, 255, 255, 0.9);
     --header-border: rgba(0, 0, 0, 0.1);
+    --primary-color-dark: #3182ce;
+    --text-primary: #2d3748;
+    --tag-bg: #ebf8ff;
+    --tag-text: #2b6cb0;
 }
 
 /* 暗色主题 */
@@ -30,6 +34,9 @@
     --header-bg: rgba(26, 32, 44, 0.9);
     --header-border: rgba(255, 255, 255, 0.1);
     --card-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    --text-primary: #f7fafc;
+    --tag-bg: #2a4365;
+    --tag-text: #90cdf4;
 }
 
 * {
@@ -1176,7 +1183,7 @@ a:hover {
 }
 
 .resource-link:hover {
-    background: var(--primary-dark);
+    background: var(--primary-color-dark);
 }
 
 /* 响应式布局优化 */
@@ -1852,18 +1859,6 @@ a:hover {
     }
 }
 
-/* 暗色主题变量 */
-[data-theme="dark"] {
-    --tag-bg: rgba(255, 255, 255, 0.1);
-    --card-bg: var(--bg-color-dark);
-}
-
-/* 亮色主题变量 */
-[data-theme="light"] {
-    --tag-bg: rgba(0, 0, 0, 0.05);
-    --card-bg: white;
-}
-
 /* 首页资源预览样式 */
 .featured-resources {
     padding: 4rem 0;
@@ -1971,4 +1966,151 @@ a:hover {
     background: url('../images/play-button.svg') no-repeat center;
     background-size: contain;
     z-index: 1;
+}
+
+/* AI Tools Grid */
+.tools-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.tool-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.tool-card:hover {
+    transform: translateY(-5px);
+}
+
+.tool-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1rem;
+}
+
+.tool-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.tool-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.tool-card p {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    line-height: 1.5;
+}
+
+.tool-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.feature-tag {
+    background: var(--tag-bg);
+    color: var(--tag-text);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+}
+
+.tool-link {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.tool-link:hover {
+    background: var(--primary-color-dark);
+}
+
+/* Video Grid */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.video-card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.video-preview {
+    position: relative;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+}
+
+.video-preview iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.video-info {
+    padding: 1rem;
+}
+
+.video-info h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.video-info p {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.tool-card,
+.video-card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .tools-grid,
+    .video-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tool-card,
+    .video-card {
+        margin: 1rem 0;
+    }
 } 

@@ -1,36 +1,86 @@
-// 主题切换功能
+// Theme Toggle
 const themeToggle = document.querySelector('.theme-toggle');
 const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 
-// 检查本地存储中的主题设置
-const currentTheme = localStorage.getItem('theme');
-if (currentTheme) {
-    document.documentElement.setAttribute('data-theme', currentTheme);
-    updateThemeIcon(currentTheme);
-} else if (prefersDarkScheme.matches) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-    updateThemeIcon('dark');
-}
+// Check for saved theme preference or use system preference
+const currentTheme = localStorage.getItem('theme') || (prefersDarkScheme.matches ? 'dark' : 'light');
+document.documentElement.setAttribute('data-theme', currentTheme);
+updateThemeIcon(currentTheme);
 
-// 切换主题
+// Theme toggle click handler
 themeToggle.addEventListener('click', () => {
-    let theme = document.documentElement.getAttribute('data-theme');
-    let newTheme = theme === 'dark' ? 'light' : 'dark';
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
     
     document.documentElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
     updateThemeIcon(newTheme);
 });
 
-// 更新主题图标
+// Update theme icon
 function updateThemeIcon(theme) {
     const icon = themeToggle.querySelector('i');
     if (theme === 'dark') {
-        icon.className = 'fas fa-sun';
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
     } else {
-        icon.className = 'fas fa-moon';
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
     }
 }
+
+// Mobile Menu Toggle
+const menuToggle = document.querySelector('.menu-toggle');
+const navMenu = document.querySelector('.nav-menu');
+
+menuToggle.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+});
+
+// Smooth Scroll
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            target.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+            // Close mobile menu if open
+            navMenu.classList.remove('active');
+            menuToggle.classList.remove('active');
+        }
+    });
+});
+
+// Back to Top Button
+const backToTopButton = document.getElementById('backToTop');
+
+window.addEventListener('scroll', () => {
+    if (window.pageYOffset > 300) {
+        backToTopButton.classList.add('visible');
+    } else {
+        backToTopButton.classList.remove('visible');
+    }
+});
+
+backToTopButton.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+});
+
+// Reading Progress Bar
+const progressBar = document.getElementById('readingProgress');
+const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+
+window.addEventListener('scroll', () => {
+    const progress = (window.pageYOffset / totalHeight) * 100;
+    progressBar.style.width = `${progress}%`;
+});
 
 // 监听系统主题变化
 prefersDarkScheme.addEventListener('change', (e) => {

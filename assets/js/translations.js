@@ -50,6 +50,16 @@ const translations = {
                 'title': 'Adobe Firefly',
                 'description': 'Adobe全新AI创意套件，完美集成Creative Cloud',
                 'features': ['专业', '生态好', '可商用']
+            },
+            'flaticon': {
+                'title': 'Flaticon',
+                'description': '免费矢量图标下载',
+                'features': ['图标', 'SVG', '可编辑']
+            },
+            'textures': {
+                'title': 'Textures.com',
+                'description': '免费高质量纹理素材',
+                'features': ['纹理', '材质', '贴图']
             }
         },
         'common': {
@@ -111,6 +121,16 @@ const translations = {
                 'title': 'Adobe Firefly',
                 'description': 'New AI creative suite perfectly integrated with Creative Cloud',
                 'features': ['Professional', 'Ecosystem', 'Commercial Use']
+            },
+            'flaticon': {
+                'title': 'Flaticon',
+                'description': 'Free vector icons download',
+                'features': ['Icons', 'SVG', 'Editable']
+            },
+            'textures': {
+                'title': 'Textures.com',
+                'description': 'Free high-quality texture resources',
+                'features': ['Textures', 'Materials', 'Maps']
             }
         },
         'common': {

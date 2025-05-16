@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI设计资源导航 - 精选AI工具与设计资源</title>
-    <meta name="description" content="精选优质AI设计工具和设计资源，助力设计师提升工作效率">
+    <title>精选AI设计资源 - AI设计趋势与工具</title>
+    <meta name="description" content="精选优质AI设计工具和最新AI设计趋势视频">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -18,10 +18,7 @@
             </a>
             <div class="nav-menu">
                 <a href="../index.html" class="nav-link">首页</a>
-                <a href="./projects.html" class="nav-link">项目</a>
-                <a href="./blog.html" class="nav-link">博客</a>
                 <a href="./resources.html" class="nav-link active">资源</a>
-                <a href="./about.html" class="nav-link">关于</a>
                 <button class="theme-toggle" aria-label="切换主题">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -37,8 +34,8 @@
     <main class="main-content">
         <div class="container">
             <section class="resources-hero">
-                <h1 class="section-title">AI设计资源导航</h1>
-                <p class="section-description">精选优质AI工具与设计资源，助力设计师提升工作效率</p>
+                <h1 class="section-title">精选AI设计资源</h1>
+                <p class="section-description">精选优质AI工具与最新设计趋势</p>
                 
                 <div class="search-box">
                     <input type="text" id="resourceSearch" placeholder="搜索资源...">
@@ -47,18 +44,16 @@
 
                 <div class="resource-filters">
                     <button class="filter-btn active" data-filter="all">全部</button>
-                    <button class="filter-btn" data-filter="ai-design">AI设计工具</button>
-                    <button class="filter-btn" data-filter="ai-image">AI图像工具</button>
-                    <button class="filter-btn" data-filter="design-resource">设计素材</button>
-                    <button class="filter-btn" data-filter="learning">学习资源</button>
+                    <button class="filter-btn" data-filter="ai-tool">AI工具</button>
+                    <button class="filter-btn" data-filter="video">视频教程</button>
                 </div>
             </section>
 
-            <!-- AI设计工具 -->
-            <section class="resource-section" id="ai-design">
-                <h2 class="section-title">AI设计工具</h2>
+            <!-- AI工具 -->
+            <section class="resource-section" id="ai-tool">
+                <h2 class="section-title">AI工具</h2>
                 <div class="resource-grid">
-                    <div class="resource-card" data-category="ai-design">
+                    <div class="resource-card" data-category="ai-tool">
                         <div class="resource-icon">
                             <img src="../assets/images/resources/midjourney.png" alt="Midjourney">
                         </div>
@@ -73,22 +68,7 @@
                         </div>
                     </div>
 
-                    <div class="resource-card" data-category="ai-design">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/figma.png" alt="Figma">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Figma AI</h3>
-                            <p>Figma内置AI助手，提升设计效率</p>
-                            <div class="resource-tags">
-                                <span class="tag">UI设计</span>
-                                <span class="tag">协作</span>
-                            </div>
-                            <a href="https://www.figma.com" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="ai-design">
+                    <div class="resource-card" data-category="ai-tool">
                         <div class="resource-icon">
                             <img src="../assets/images/resources/canva.png" alt="Canva">
                         </div>
@@ -97,64 +77,13 @@
                             <p>智能在线设计平台，支持中文，操作简单</p>
                             <div class="resource-tags">
                                 <span class="tag">在线设计</span>
-                                <span class="tag">模板</span>
+                                <span class="tag">中文</span>
                             </div>
                             <a href="https://www.canva.cn" class="resource-link" target="_blank">访问网站</a>
                         </div>
                     </div>
 
-                    <div class="resource-card" data-category="ai-design">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/remove-bg.png" alt="Remove.bg">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Remove.bg</h3>
-                            <p>AI智能抠图工具，一键去除背景</p>
-                            <div class="resource-tags">
-                                <span class="tag">抠图</span>
-                                <span class="tag">图片处理</span>
-                            </div>
-                            <a href="https://www.remove.bg" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="ai-design">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/runway.png" alt="Runway">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Runway</h3>
-                            <p>AI视频编辑与生成工具，支持多种创意效果</p>
-                            <div class="resource-tags">
-                                <span class="tag">视频编辑</span>
-                                <span class="tag">特效</span>
-                            </div>
-                            <a href="https://runway.ml" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="ai-design">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/photoroom.png" alt="PhotoRoom">
-                        </div>
-                        <div class="resource-content">
-                            <h3>PhotoRoom</h3>
-                            <p>AI图片编辑工具，支持换背景、去背景等</p>
-                            <div class="resource-tags">
-                                <span class="tag">图片编辑</span>
-                                <span class="tag">产品图</span>
-                            </div>
-                            <a href="https://www.photoroom.com" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- AI图像工具 -->
-            <section class="resource-section" id="ai-image">
-                <h2 class="section-title">AI图像工具</h2>
-                <div class="resource-grid">
-                    <div class="resource-card" data-category="ai-image">
+                    <div class="resource-card" data-category="ai-tool">
                         <div class="resource-icon">
                             <img src="../assets/images/resources/stable-diffusion.png" alt="Stable Diffusion">
                         </div>
@@ -163,58 +92,13 @@
                             <p>开源AI图像生成模型，可本地部署</p>
                             <div class="resource-tags">
                                 <span class="tag">开源</span>
-                                <span class="tag">图像生成</span>
+                                <span class="tag">本地部署</span>
                             </div>
                             <a href="https://stability.ai" class="resource-link" target="_blank">访问网站</a>
                         </div>
                     </div>
 
-                    <div class="resource-card" data-category="ai-image">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/dalle.png" alt="DALL-E">
-                        </div>
-                        <div class="resource-content">
-                            <h3>DALL-E</h3>
-                            <p>OpenAI开发的AI图像生成工具</p>
-                            <div class="resource-tags">
-                                <span class="tag">图像生成</span>
-                                <span class="tag">编辑</span>
-                            </div>
-                            <a href="https://openai.com/dall-e-3" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="ai-image">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/leonardo.png" alt="Leonardo.ai">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Leonardo.ai</h3>
-                            <p>专业的AI图像生成平台，支持自定义模型训练</p>
-                            <div class="resource-tags">
-                                <span class="tag">图像生成</span>
-                                <span class="tag">模型训练</span>
-                            </div>
-                            <a href="https://leonardo.ai" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="ai-image">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/clipdrop.png" alt="ClipDrop">
-                        </div>
-                        <div class="resource-content">
-                            <h3>ClipDrop</h3>
-                            <p>AI图像处理套件，包含去背景、修复等功能</p>
-                            <div class="resource-tags">
-                                <span class="tag">图像处理</span>
-                                <span class="tag">工具集</span>
-                            </div>
-                            <a href="https://clipdrop.co" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="ai-image">
+                    <div class="resource-card" data-category="ai-tool">
                         <div class="resource-icon">
                             <img src="../assets/images/resources/firefly.png" alt="Adobe Firefly">
                         </div>
@@ -228,198 +112,80 @@
                             <a href="https://firefly.adobe.com" class="resource-link" target="_blank">访问网站</a>
                         </div>
                     </div>
-
-                    <div class="resource-card" data-category="ai-image">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/comfyui.png" alt="ComfyUI">
-                        </div>
-                        <div class="resource-content">
-                            <h3>ComfyUI</h3>
-                            <p>开源的节点式AI图像生成工具，功能强大</p>
-                            <div class="resource-tags">
-                                <span class="tag">开源</span>
-                                <span class="tag">可视化</span>
-                            </div>
-                            <a href="https://github.com/comfyanonymous/ComfyUI" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
                 </div>
             </section>
 
-            <!-- 设计素材 -->
-            <section class="resource-section" id="design-resource">
-                <h2 class="section-title">设计素材</h2>
+            <!-- 视频教程 -->
+            <section class="resource-section" id="video">
+                <h2 class="section-title">视频教程</h2>
                 <div class="resource-grid">
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/unsplash.png" alt="Unsplash">
+                    <div class="resource-card" data-category="video">
+                        <div class="resource-icon video-preview">
+                            <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=123456789&page=1" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="resource-content">
-                            <h3>Unsplash</h3>
-                            <p>免费高质量图片素材库</p>
-                            <div class="resource-tags">
-                                <span class="tag">免费</span>
-                                <span class="tag">图片素材</span>
-                            </div>
-                            <a href="https://unsplash.com" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/icons8.png" alt="Icons8">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Icons8</h3>
-                            <p>图标、插画、照片等设计资源</p>
-                            <div class="resource-tags">
-                                <span class="tag">图标</span>
-                                <span class="tag">插画</span>
-                            </div>
-                            <a href="https://icons8.com" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/iconfont.png" alt="Iconfont">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Iconfont</h3>
-                            <p>阿里巴巴矢量图标库，中国最大的图标库</p>
-                            <div class="resource-tags">
-                                <span class="tag">图标</span>
-                                <span class="tag">中文</span>
-                            </div>
-                            <a href="https://www.iconfont.cn" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/flaticon.png" alt="Flaticon">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Flaticon</h3>
-                            <p>海量免费矢量图标库，支持多种格式下载</p>
-                            <div class="resource-tags">
-                                <span class="tag">图标</span>
-                                <span class="tag">矢量</span>
-                            </div>
-                            <a href="https://www.flaticon.com" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/huaban.png" alt="花瓣网">
-                        </div>
-                        <div class="resource-content">
-                            <h3>花瓣网</h3>
-                            <p>优质设计灵感分享平台，支持中文</p>
-                            <div class="resource-tags">
-                                <span class="tag">灵感</span>
-                                <span class="tag">素材</span>
-                            </div>
-                            <a href="https://huaban.com" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/dribbble.png" alt="Dribbble">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Dribbble</h3>
-                            <p>全球顶级设计师作品展示平台</p>
-                            <div class="resource-tags">
-                                <span class="tag">设计作品</span>
-                                <span class="tag">灵感</span>
-                            </div>
-                            <a href="https://dribbble.com" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/behance.png" alt="Behance">
-                        </div>
-                        <div class="resource-content">
-                            <h3>Behance</h3>
-                            <p>Adobe旗下创意设计社区，作品质量高</p>
-                            <div class="resource-tags">
-                                <span class="tag">创意</span>
-                                <span class="tag">作品集</span>
-                            </div>
-                            <a href="https://www.behance.net" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-
-                    <div class="resource-card" data-category="design-resource">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/ui8.png" alt="UI8">
-                        </div>
-                        <div class="resource-content">
-                            <h3>UI8</h3>
-                            <p>高质量UI套件和设计资源市场</p>
-                            <div class="resource-tags">
-                                <span class="tag">UI资源</span>
-                                <span class="tag">模板</span>
-                            </div>
-                            <a href="https://ui8.net" class="resource-link" target="_blank">访问网站</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 学习资源 -->
-            <section class="resource-section" id="learning">
-                <h2 class="section-title">学习资源</h2>
-                <div class="resource-grid">
-                    <div class="resource-card" data-category="learning">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/prompt-engineering.png" alt="Prompt Engineering Guide">
-                        </div>
-                        <div class="resource-content">
-                            <h3>提示工程指南</h3>
-                            <p>学习AI提示词编写技巧</p>
+                            <h3>Midjourney V6 完整教程</h3>
+                            <p>最新版本特性与提示词技巧详解</p>
                             <div class="resource-tags">
                                 <span class="tag">教程</span>
-                                <span class="tag">AI提示词</span>
+                                <span class="tag">Midjourney</span>
                             </div>
-                            <a href="#" class="resource-link" target="_blank">查看详情</a>
+                            <a href="https://www.bilibili.com/video/BV1234567890" class="resource-link" target="_blank">观看完整视频</a>
                         </div>
                     </div>
 
-                    <div class="resource-card" data-category="learning">
-                        <div class="resource-icon">
-                            <img src="../assets/images/resources/design-principles.png" alt="Design Principles">
+                    <div class="resource-card" data-category="video">
+                        <div class="resource-icon video-preview">
+                            <iframe src="https://www.bilibili.com/blackboard/html5mobileplayer.html?aid=987654321&page=1" frameborder="0" allowfullscreen></iframe>
                         </div>
                         <div class="resource-content">
-                            <h3>设计原则课程</h3>
-                            <p>掌握核心设计原则与方法</p>
+                            <h3>AI设计趋势解析</h3>
+                            <p>2024年AI设计工具发展趋势与应用方向</p>
                             <div class="resource-tags">
-                                <span class="tag">设计理论</span>
-                                <span class="tag">实践指南</span>
+                                <span class="tag">趋势</span>
+                                <span class="tag">前沿</span>
                             </div>
-                            <a href="#" class="resource-link" target="_blank">查看详情</a>
+                            <a href="https://www.bilibili.com/video/BV1987654321" class="resource-link" target="_blank">观看完整视频</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-category="video">
+                        <div class="resource-icon video-preview">
+                            <iframe src="https://player.bilibili.com/player.html?aid=111222333&page=1" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="resource-content">
+                            <h3>Stable Diffusion 实战教程</h3>
+                            <p>从安装到精通的完整教学</p>
+                            <div class="resource-tags">
+                                <span class="tag">教程</span>
+                                <span class="tag">SD</span>
+                            </div>
+                            <a href="https://www.bilibili.com/video/BV1111222333" class="resource-link" target="_blank">观看完整视频</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-category="video">
+                        <div class="resource-icon video-preview">
+                            <iframe src="https://player.bilibili.com/player.html?aid=444555666&page=1" frameborder="0" allowfullscreen></iframe>
+                        </div>
+                        <div class="resource-content">
+                            <h3>Adobe Firefly 新功能介绍</h3>
+                            <p>最新AI功能与实用技巧分享</p>
+                            <div class="resource-tags">
+                                <span class="tag">Adobe</span>
+                                <span class="tag">新功能</span>
+                            </div>
+                            <a href="https://www.bilibili.com/video/BV1444555666" class="resource-link" target="_blank">观看完整视频</a>
                         </div>
                     </div>
                 </div>
-            </section>
-
-            <!-- 资源提交 -->
-            <section class="submit-resource">
-                <h2>提交资源</h2>
-                <p>发现了好用的AI工具或设计资源？欢迎提交给我们</p>
-                <a href="#" class="primary-btn">提交资源</a>
             </section>
         </div>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 AI设计资源导航. All rights reserved.</p>
+            <p>&copy; 2024 精选AI设计资源. All rights reserved.</p>
         </div>
     </footer>
 
@@ -468,6 +234,13 @@
                         card.style.display = category === filter ? 'flex' : 'none';
                     }
                 });
+            });
+        });
+
+        // 视频预览优化
+        document.querySelectorAll('.video-preview iframe').forEach(iframe => {
+            iframe.addEventListener('load', () => {
+                iframe.style.opacity = '1';
             });
         });
     </script>

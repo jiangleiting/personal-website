@@ -4,64 +4,146 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI设计资源导航，收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。">
-    <meta name="keywords" content="AI设计,设计素材,免费图片,免费视频,免费音效,免费笔刷,Midjourney,Stable Diffusion,Canva AI,Adobe Firefly,设计工具,设计资源导航">
+    
+    <!-- 安全相关标签 -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' https: 'unsafe-inline' 'unsafe-eval';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
+    <meta http-equiv="Permissions-Policy" content="interest-cohort=()">
+    
+    <meta name="description" content="AI设计资源导航，收录最新最全的AI设计工具与免费设计素材。包括Midjourney、Stable Diffusion、Canva AI等AI绘画工具，以及高质量免费图片、视频、音效、字体等设计资源。适合设计师、自媒体、营销人员使用。">
+    <meta name="keywords" content="AI设计,AI绘画,设计素材,免费图片,免费视频,免费音效,免费字体,设计工具,Midjourney教程,Stable Diffusion教程,Canva AI,Adobe Firefly,设计资源,UI设计,平面设计,免费商用素材,设计师导航,自媒体素材">
     <meta name="author" content="蒋雷霆">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="index,follow,max-image-preview:large">
     <meta name="googlebot" content="index,follow">
     <meta name="revisit-after" content="7 days">
+    <meta name="baidu-site-verification" content="code-yourcode" />
+    
+    <!-- DNS预解析 -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+    
+    <!-- 预连接 -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    
+    <!-- 预加载关键资源 -->
+    <link rel="preload" href="./assets/css/style.css" as="style">
+    <link rel="preload" href="./assets/js/main.js" as="script">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- Open Graph / 社交媒体优化 -->
-    <meta property="og:title" content="AI设计资源导航 - 发现优质AI工具与免费设计素材">
-    <meta property="og:description" content="收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。">
+    <meta property="og:title" content="AI设计资源导航 - 最全AI设计工具与免费设计素材导航网站">
+    <meta property="og:description" content="收录最新最全的AI设计工具与免费设计素材。包括Midjourney、Stable Diffusion、Canva AI等AI绘画工具，以及高质量免费图片、视频、音效、字体等设计资源。适合设计师、自媒体、营销人员使用。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jiangleiting.github.io/personal-website/">
     <meta property="og:image" content="./assets/images/og-image.jpg">
     <meta property="og:site_name" content="AI设计资源导航">
+    <meta property="og:locale" content="zh_CN">
     
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="AI设计资源导航 - 发现优质AI工具与免费设计素材">
-    <meta name="twitter:description" content="收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。">
+    <meta name="twitter:title" content="AI设计资源导航 - 最全AI设计工具与免费设计素材导航网站">
+    <meta name="twitter:description" content="收录最新最全的AI设计工具与免费设计素材。包括Midjourney、Stable Diffusion、Canva AI等AI绘画工具，以及高质量免费图片、视频、音效、字体等设计资源。">
     <meta name="twitter:image" content="./assets/images/og-image.jpg">
     
     <!-- 移动设备优化 -->
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
-    
-    <!-- 性能优化：预加载关键资源 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    
-    <link rel="preload" href="./assets/css/style.css" as="style">
-    <link rel="preload" href="./assets/js/main.js" as="script">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="mobile-agent" content="format=html5">
     
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#4a9eff">
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
     
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
     <title>AI设计资源导航 - 发现优质AI工具与免费设计素材</title>
     <link rel="stylesheet" href="./assets/css/style.css?v=1.0.4">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
-    <!-- 结构化数据 -->
+    <!-- 多语言支持 -->
+    <script src="./assets/js/translations.js"></script>
+    <script src="./assets/js/i18n.js"></script>
+    
+    <!-- 结构化数据增强 -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "AI设计资源导航",
-      "description": "AI设计资源导航，收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。",
+      "alternateName": "AI设计工具与免费设计素材导航",
+      "description": "收录最新最全的AI设计工具与免费设计素材。包括Midjourney、Stable Diffusion、Canva AI等AI绘画工具，以及高质量免费图片、视频、音效、字体等设计资源。",
       "url": "https://jiangleiting.github.io/personal-website/",
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://jiangleiting.github.io/personal-website/#search={search_term_string}",
         "query-input": "required name=search_term_string"
-      }
+      },
+      "sameAs": [
+        "https://www.midjourney.com",
+        "https://stability.ai",
+        "https://www.canva.cn"
+      ],
+      "author": {
+        "@type": "Person",
+        "name": "蒋雷霆",
+        "url": "https://jiangleiting.github.io/personal-website/"
+      },
+      "dateModified": "2024-03-20",
+      "inLanguage": "zh-CN"
     }
     </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "首页",
+          "item": "https://jiangleiting.github.io/personal-website/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "AI工具",
+          "item": "https://jiangleiting.github.io/personal-website/#image-ai"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "免费图片",
+          "item": "https://jiangleiting.github.io/personal-website/#free-images"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "免费视频",
+          "item": "https://jiangleiting.github.io/personal-website/#free-videos"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "免费音效",
+          "item": "https://jiangleiting.github.io/personal-website/#free-audio"
+        },
+        {
+          "@type": "ListItem",
+          "position": 6,
+          "name": "设计资源",
+          "item": "https://jiangleiting.github.io/personal-website/#free-resources"
+        }
+      ]
+    }
+    </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -71,42 +153,62 @@
           "@type": "ListItem",
           "position": 1,
           "name": "AI设计工具",
-          "description": "包括Midjourney、Stable Diffusion、Canva AI、Adobe Firefly等AI设计工具"
+          "description": "包括Midjourney、Stable Diffusion、Canva AI、Adobe Firefly等AI设计工具，支持AI绘画、图像生成、设计辅助等功能",
+          "url": "https://jiangleiting.github.io/personal-website/#image-ai"
         },
         {
           "@type": "ListItem",
           "position": 2,
           "name": "免费图片素材",
-          "description": "收录Unsplash、Pexels、Pixabay、Freepik等免费图片资源"
+          "description": "收录Unsplash、Pexels、Pixabay、Freepik等免费图片资源，支持免费商用，质量优秀",
+          "url": "https://jiangleiting.github.io/personal-website/#free-images"
         },
         {
           "@type": "ListItem",
           "position": 3,
           "name": "免费视频素材",
-          "description": "收录Mixkit、Videvo、Coverr、Mazwai等免费视频资源"
+          "description": "收录Mixkit、Videvo、Coverr、Mazwai等免费视频资源，支持免费商用，画质精良",
+          "url": "https://jiangleiting.github.io/personal-website/#free-videos"
         },
         {
           "@type": "ListItem",
           "position": 4,
           "name": "免费音效素材",
-          "description": "收录Freesound、Uppbeat、SoundBible、Bensound等免费音效资源"
+          "description": "收录Freesound、Uppbeat、SoundBible、Bensound等免费音效资源，种类丰富，可商用",
+          "url": "https://jiangleiting.github.io/personal-website/#free-audio"
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "name": "设计资源",
+          "description": "收录字体、图标、笔刷、纹理等设计素材，包括DaFont、Flaticon等知名资源站",
+          "url": "https://jiangleiting.github.io/personal-website/#free-resources"
         }
       ]
     }
     </script>
+    
+    <link rel="canonical" href="https://jiangleiting.github.io/personal-website/" />
 </head>
 <body>
     <header class="header">
         <nav class="nav-container">
             <a href="./index.html" class="logo">
-                <span class="gradient-text">AI设计导航</span>
+                <span class="gradient-text" data-i18n="nav.title">AI设计导航</span>
             </a>
             <div class="nav-menu">
-                <a href="#image-ai" class="nav-link">AI工具</a>
-                <a href="#free-images" class="nav-link">免费图片</a>
-                <a href="#free-videos" class="nav-link">免费视频</a>
-                <a href="#free-audio" class="nav-link">免费音效</a>
-                <a href="#free-resources" class="nav-link">设计资源</a>
+                <a href="#image-ai" class="nav-link" data-i18n="nav.aiTools">AI工具</a>
+                <a href="#free-images" class="nav-link" data-i18n="nav.freeImages">免费图片</a>
+                <a href="#free-videos" class="nav-link" data-i18n="nav.freeVideos">免费视频</a>
+                <a href="#free-audio" class="nav-link" data-i18n="nav.freeAudio">免费音效</a>
+                <a href="#free-resources" class="nav-link" data-i18n="nav.designResources">设计资源</a>
+                
+                <!-- 语言切换器 -->
+                <select id="language-select" class="language-select" aria-label="切换语言">
+                    <option value="zh-CN">中文</option>
+                    <option value="en">English</option>
+                </select>
+                
                 <button class="theme-toggle" aria-label="切换主题">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -123,13 +225,20 @@
         <div class="container">
             <!-- AI工具 -->
             <section id="image-ai" class="tools-section">
-                <h2 class="section-title">AI设计工具</h2>
-                <p class="section-description">智能设计工具，提升创作效率</p>
+                <h2 class="section-title" data-i18n="sections.aiTools.title">AI设计工具</h2>
+                <p class="section-description" data-i18n="sections.aiTools.description">智能设计工具，提升创作效率</p>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="./assets/images/tools/midjourney.svg" alt="Midjourney" loading="lazy">
+                            <img src="./assets/images/tools/midjourney.svg" 
+                                 srcset="./assets/images/tools/midjourney-small.svg 300w,
+                                        ./assets/images/tools/midjourney.svg 600w"
+                                 sizes="(max-width: 600px) 300px, 600px"
+                                 alt="Midjourney" 
+                                 loading="lazy"
+                                 width="64"
+                                 height="64">
                         </div>
                         <h3>Midjourney</h3>
                         <p>专业级AI艺术创作工具，支持精确提示词控制</p>
@@ -138,12 +247,19 @@
                             <span class="feature-tag">精确控制</span>
                             <span class="feature-tag">高质量</span>
                         </div>
-                        <a href="https://www.midjourney.com" class="tool-link" target="_blank">访问官网</a>
+                        <a href="https://www.midjourney.com" class="tool-link" target="_blank" rel="noopener">访问官网</a>
                     </div>
 
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="./assets/images/tools/stable-diffusion.svg" alt="Stable Diffusion" loading="lazy">
+                            <img src="./assets/images/tools/stable-diffusion.svg"
+                                 srcset="./assets/images/tools/stable-diffusion-small.svg 300w,
+                                        ./assets/images/tools/stable-diffusion.svg 600w"
+                                 sizes="(max-width: 600px) 300px, 600px"
+                                 alt="Stable Diffusion"
+                                 loading="lazy"
+                                 width="64"
+                                 height="64">
                         </div>
                         <h3>Stable Diffusion</h3>
                         <p>开源AI图像生成模型，支持本地部署使用</p>
@@ -152,12 +268,19 @@
                             <span class="feature-tag">本地部署</span>
                             <span class="feature-tag">可定制</span>
                         </div>
-                        <a href="https://stability.ai" class="tool-link" target="_blank">访问官网</a>
+                        <a href="https://stability.ai" class="tool-link" target="_blank" rel="noopener">访问官网</a>
                     </div>
 
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="./assets/images/tools/canva.svg" alt="Canva AI" loading="lazy">
+                            <img src="./assets/images/tools/canva.svg"
+                                 srcset="./assets/images/tools/canva-small.svg 300w,
+                                        ./assets/images/tools/canva.svg 600w"
+                                 sizes="(max-width: 600px) 300px, 600px"
+                                 alt="Canva AI"
+                                 loading="lazy"
+                                 width="64"
+                                 height="64">
                         </div>
                         <h3>Canva AI</h3>
                         <p>中文界面在线设计工具，内置多种AI辅助功能</p>
@@ -166,12 +289,19 @@
                             <span class="feature-tag">中文界面</span>
                             <span class="feature-tag">模板多</span>
                         </div>
-                        <a href="https://www.canva.cn" class="tool-link" target="_blank">访问官网</a>
+                        <a href="https://www.canva.cn" class="tool-link" target="_blank" rel="noopener">访问官网</a>
                     </div>
 
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="./assets/images/tools/adobe-firefly.svg" alt="Adobe Firefly" loading="lazy">
+                            <img src="./assets/images/tools/adobe-firefly.svg"
+                                 srcset="./assets/images/tools/adobe-firefly-small.svg 300w,
+                                        ./assets/images/tools/adobe-firefly.svg 600w"
+                                 sizes="(max-width: 600px) 300px, 600px"
+                                 alt="Adobe Firefly"
+                                 loading="lazy"
+                                 width="64"
+                                 height="64">
                         </div>
                         <h3>Adobe Firefly</h3>
                         <p>Adobe全新AI创意套件，完美集成Creative Cloud</p>
@@ -180,15 +310,15 @@
                             <span class="feature-tag">生态好</span>
                             <span class="feature-tag">可商用</span>
                         </div>
-                        <a href="https://www.adobe.com/products/firefly.html" class="tool-link" target="_blank">访问官网</a>
+                        <a href="https://www.adobe.com/products/firefly.html" class="tool-link" target="_blank" rel="noopener">访问官网</a>
                     </div>
                 </div>
             </section>
 
             <!-- 免费图片 -->
             <section id="free-images" class="tools-section">
-                <h2 class="section-title">免费图片素材</h2>
-                <p class="section-description">高质量免费图片素材网站</p>
+                <h2 class="section-title" data-i18n="sections.freeImages.title">免费图片素材</h2>
+                <p class="section-description" data-i18n="sections.freeImages.description">高质量免费图片素材网站</p>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -251,8 +381,8 @@
 
             <!-- 免费视频 -->
             <section id="free-videos" class="tools-section">
-                <h2 class="section-title">免费视频素材</h2>
-                <p class="section-description">高质量免费视频素材网站</p>
+                <h2 class="section-title" data-i18n="sections.freeVideos.title">免费视频素材</h2>
+                <p class="section-description" data-i18n="sections.freeVideos.description">高质量免费视频素材网站</p>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -315,8 +445,8 @@
 
             <!-- 免费音效 -->
             <section id="free-audio" class="tools-section">
-                <h2 class="section-title">免费音效素材</h2>
-                <p class="section-description">优质免费音效和背景音乐</p>
+                <h2 class="section-title" data-i18n="sections.freeAudio.title">免费音效素材</h2>
+                <p class="section-description" data-i18n="sections.freeAudio.description">优质免费音效和背景音乐</p>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -379,8 +509,8 @@
 
             <!-- 设计资源 -->
             <section id="free-resources" class="tools-section">
-                <h2 class="section-title">免费设计资源</h2>
-                <p class="section-description">笔刷、字体、图标等设计素材</p>
+                <h2 class="section-title" data-i18n="sections.freeResources.title">免费设计资源</h2>
+                <p class="section-description" data-i18n="sections.freeResources.description">笔刷、字体、图标等设计素材</p>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -445,7 +575,7 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024-2025 AI设计资源导航. All rights reserved.</p>
+            <p data-i18n="common.copyright">&copy; 2025 AI设计资源导航. All rights reserved.</p>
         </div>
     </footer>
 

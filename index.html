@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI设计资源导航，发现优质AI设计工具。">
-    <meta name="keywords" content="AI设计,Midjourney,Stable Diffusion,Canva AI,Adobe Firefly">
+    <meta name="description" content="AI设计资源导航，收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。">
+    <meta name="keywords" content="AI设计,设计素材,免费图片,免费视频,免费音效,免费笔刷,Midjourney,Stable Diffusion,Canva AI,Adobe Firefly,设计工具,设计资源导航">
     <meta name="author" content="蒋雷霆">
     <meta name="robots" content="index,follow">
-    <meta property="og:title" content="AI设计资源导航">
-    <meta property="og:description" content="发现最新最全的AI设计工具">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="7 days">
+    
+    <!-- Open Graph / 社交媒体优化 -->
+    <meta property="og:title" content="AI设计资源导航 - 发现优质AI工具与免费设计素材">
+    <meta property="og:description" content="收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jiangleiting.github.io/personal-website/">
+    <meta property="og:image" content="./assets/images/og-image.jpg">
+    <meta property="og:site_name" content="AI设计资源导航">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI设计资源导航 - 发现优质AI工具与免费设计素材">
+    <meta name="twitter:description" content="收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。">
+    <meta name="twitter:image" content="./assets/images/og-image.jpg">
+    
+    <!-- 移动设备优化 -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
     
     <!-- 性能优化：预加载关键资源 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,10 +42,58 @@
     <meta name="theme-color" content="#4a9eff">
     
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
-    <title>AI设计资源导航 - 发现优质AI设计工具</title>
-    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.3">
+    <title>AI设计资源导航 - 发现优质AI工具与免费设计素材</title>
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.4">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- 结构化数据 -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AI设计资源导航",
+      "description": "AI设计资源导航，收录优质AI设计工具、免费设计素材。包括Midjourney、Stable Diffusion等AI工具，以及免费图片、视频、音效、字体等设计资源。",
+      "url": "https://jiangleiting.github.io/personal-website/",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://jiangleiting.github.io/personal-website/#search={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "AI设计工具",
+          "description": "包括Midjourney、Stable Diffusion、Canva AI、Adobe Firefly等AI设计工具"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "免费图片素材",
+          "description": "收录Unsplash、Pexels、Pixabay、Freepik等免费图片资源"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "免费视频素材",
+          "description": "收录Mixkit、Videvo、Coverr、Mazwai等免费视频资源"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "免费音效素材",
+          "description": "收录Freesound、Uppbeat、SoundBible、Bensound等免费音效资源"
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
     <header class="header">
@@ -37,8 +102,11 @@
                 <span class="gradient-text">AI设计导航</span>
             </a>
             <div class="nav-menu">
-                <a href="#image-ai" class="nav-link">图像生成</a>
-                <a href="#design-ai" class="nav-link">设计辅助</a>
+                <a href="#image-ai" class="nav-link">AI工具</a>
+                <a href="#free-images" class="nav-link">免费图片</a>
+                <a href="#free-videos" class="nav-link">免费视频</a>
+                <a href="#free-audio" class="nav-link">免费音效</a>
+                <a href="#free-resources" class="nav-link">设计资源</a>
                 <button class="theme-toggle" aria-label="切换主题">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -53,10 +121,10 @@
 
     <main class="main-content">
         <div class="container">
-            <!-- 图像生成AI -->
+            <!-- AI工具 -->
             <section id="image-ai" class="tools-section">
-                <h2 class="section-title">图像生成AI</h2>
-                <p class="section-description">专业的AI图像生成工具，让创作更轻松</p>
+                <h2 class="section-title">AI设计工具</h2>
+                <p class="section-description">智能设计工具，提升创作效率</p>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -86,15 +154,7 @@
                         </div>
                         <a href="https://stability.ai" class="tool-link" target="_blank">访问官网</a>
                     </div>
-                </div>
-            </section>
 
-            <!-- 设计辅助AI -->
-            <section id="design-ai" class="tools-section">
-                <h2 class="section-title">设计辅助AI</h2>
-                <p class="section-description">智能设计工具，提升设计效率</p>
-                
-                <div class="tools-grid">
                     <div class="tool-card">
                         <div class="tool-icon">
                             <img src="./assets/images/tools/canva.png" alt="Canva AI">
@@ -121,6 +181,262 @@
                             <span class="feature-tag">可商用</span>
                         </div>
                         <a href="https://www.adobe.com/products/firefly.html" class="tool-link" target="_blank">访问官网</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 免费图片 -->
+            <section id="free-images" class="tools-section">
+                <h2 class="section-title">免费图片素材</h2>
+                <p class="section-description">高质量免费图片素材网站</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/unsplash.png" alt="Unsplash">
+                        </div>
+                        <h3>Unsplash</h3>
+                        <p>高质量免费图片分享平台，支持商用</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">免费商用</span>
+                            <span class="feature-tag">高清图片</span>
+                            <span class="feature-tag">更新快</span>
+                        </div>
+                        <a href="https://unsplash.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/pexels.png" alt="Pexels">
+                        </div>
+                        <h3>Pexels</h3>
+                        <p>免费图片和视频素材库，质量优秀</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">免费商用</span>
+                            <span class="feature-tag">中文版</span>
+                            <span class="feature-tag">图片视频</span>
+                        </div>
+                        <a href="https://www.pexels.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/pixabay.png" alt="Pixabay">
+                        </div>
+                        <h3>Pixabay</h3>
+                        <p>免费正版高清图片素材库</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">免费商用</span>
+                            <span class="feature-tag">种类多</span>
+                            <span class="feature-tag">中文版</span>
+                        </div>
+                        <a href="https://pixabay.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/freepik.png" alt="Freepik">
+                        </div>
+                        <h3>Freepik</h3>
+                        <p>免费矢量图和PSD素材下载</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">矢量图</span>
+                            <span class="feature-tag">PSD文件</span>
+                            <span class="feature-tag">可商用</span>
+                        </div>
+                        <a href="https://www.freepik.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 免费视频 -->
+            <section id="free-videos" class="tools-section">
+                <h2 class="section-title">免费视频素材</h2>
+                <p class="section-description">高质量免费视频素材网站</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/mixkit.png" alt="Mixkit">
+                        </div>
+                        <h3>Mixkit</h3>
+                        <p>免费高质量视频素材和音效</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">免费商用</span>
+                            <span class="feature-tag">高清视频</span>
+                            <span class="feature-tag">音效</span>
+                        </div>
+                        <a href="https://mixkit.co" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/videvo.png" alt="Videvo">
+                        </div>
+                        <h3>Videvo</h3>
+                        <p>免费视频素材和动态效果</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">视频素材</span>
+                            <span class="feature-tag">动态效果</span>
+                            <span class="feature-tag">音效</span>
+                        </div>
+                        <a href="https://www.videvo.net" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/coverr.png" alt="Coverr">
+                        </div>
+                        <h3>Coverr</h3>
+                        <p>美丽的免费视频素材网站</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">高清视频</span>
+                            <span class="feature-tag">可商用</span>
+                            <span class="feature-tag">更新快</span>
+                        </div>
+                        <a href="https://coverr.co" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/mazwai.png" alt="Mazwai">
+                        </div>
+                        <h3>Mazwai</h3>
+                        <p>高品质免费视频素材</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">创意视频</span>
+                            <span class="feature-tag">高清素材</span>
+                            <span class="feature-tag">免费商用</span>
+                        </div>
+                        <a href="https://mazwai.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 免费音效 -->
+            <section id="free-audio" class="tools-section">
+                <h2 class="section-title">免费音效素材</h2>
+                <p class="section-description">优质免费音效和背景音乐</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/freesound.png" alt="Freesound">
+                        </div>
+                        <h3>Freesound</h3>
+                        <p>海量免费音效素材库</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">音效素材</span>
+                            <span class="feature-tag">种类多</span>
+                            <span class="feature-tag">可商用</span>
+                        </div>
+                        <a href="https://freesound.org" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/uppbeat.png" alt="Uppbeat">
+                        </div>
+                        <h3>Uppbeat</h3>
+                        <p>免费背景音乐下载</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">背景音乐</span>
+                            <span class="feature-tag">可商用</span>
+                            <span class="feature-tag">更新快</span>
+                        </div>
+                        <a href="https://uppbeat.io" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/soundbible.png" alt="SoundBible">
+                        </div>
+                        <h3>SoundBible</h3>
+                        <p>免费音效下载网站</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">音效素材</span>
+                            <span class="feature-tag">MP3格式</span>
+                            <span class="feature-tag">免费</span>
+                        </div>
+                        <a href="https://soundbible.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/bensound.png" alt="Bensound">
+                        </div>
+                        <h3>Bensound</h3>
+                        <p>免费背景音乐素材库</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">背景音乐</span>
+                            <span class="feature-tag">高品质</span>
+                            <span class="feature-tag">可商用</span>
+                        </div>
+                        <a href="https://www.bensound.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 设计资源 -->
+            <section id="free-resources" class="tools-section">
+                <h2 class="section-title">免费设计资源</h2>
+                <p class="section-description">笔刷、字体、图标等设计素材</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/brusheezy.png" alt="Brusheezy">
+                        </div>
+                        <h3>Brusheezy</h3>
+                        <p>免费Photoshop笔刷下载</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">PS笔刷</span>
+                            <span class="feature-tag">纹理</span>
+                            <span class="feature-tag">图案</span>
+                        </div>
+                        <a href="https://www.brusheezy.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/dafont.png" alt="DaFont">
+                        </div>
+                        <h3>DaFont</h3>
+                        <p>免费字体下载网站</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">免费字体</span>
+                            <span class="feature-tag">种类多</span>
+                            <span class="feature-tag">可商用</span>
+                        </div>
+                        <a href="https://www.dafont.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/flaticon.png" alt="Flaticon">
+                        </div>
+                        <h3>Flaticon</h3>
+                        <p>免费矢量图标下载</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">图标</span>
+                            <span class="feature-tag">SVG</span>
+                            <span class="feature-tag">可编辑</span>
+                        </div>
+                        <a href="https://www.flaticon.com" class="tool-link" target="_blank">访问网站</a>
+                    </div>
+
+                    <div class="tool-card">
+                        <div class="tool-icon">
+                            <img src="./assets/images/tools/textures.png" alt="Textures.com">
+                        </div>
+                        <h3>Textures.com</h3>
+                        <p>免费高质量纹理素材</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">纹理</span>
+                            <span class="feature-tag">材质</span>
+                            <span class="feature-tag">贴图</span>
+                        </div>
+                        <a href="https://www.textures.com" class="tool-link" target="_blank">访问网站</a>
                     </div>
                 </div>
             </section>

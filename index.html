@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="这是一个记录技术探索和生活感悟的个人网站，分享Web开发、编程技术和个人成长经验。">
-    <meta name="keywords" content="个人网站,技术博客,Web开发,编程,全栈开发">
+    <meta name="description" content="AI设计资源导航，分享优质AI设计工具和教程。">
+    <meta name="keywords" content="AI设计,Midjourney,Stable Diffusion,Canva AI,Adobe Firefly,AI教程">
     <meta name="author" content="蒋雷霆">
     <meta name="robots" content="index,follow">
-    <meta property="og:title" content="我的个人网站">
-    <meta property="og:description" content="这是一个记录技术探索和生活感悟的个人网站">
+    <meta property="og:title" content="AI设计资源导航">
+    <meta property="og:description" content="发现和学习最新的AI设计工具与教程">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jiangleiting.github.io/personal-website/">
     
@@ -18,82 +18,27 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     
-    <!-- 性能优化：预加载关键资源 -->
     <link rel="preload" href="./assets/css/style.css" as="style">
     <link rel="preload" href="./assets/js/main.js" as="script">
-    <link rel="preload" href="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js" as="script">
     
-    <!-- PWA支持 -->
     <link rel="manifest" href="./manifest.json">
     <meta name="theme-color" content="#4a9eff">
     
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
-    <title>我的个人网站 - 技术探索与生活感悟</title>
-    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.1">
+    <title>AI设计资源导航 - 发现优质AI设计工具与教程</title>
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.2">
     
-    <!-- 添加Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    
-    <!-- 延迟加载非关键CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" media="print" onload="this.media='all'">
-    
-    <!-- 添加Service Worker注册 -->
-    <script>
-        if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('./sw.js')
-                    .then(registration => {
-                        console.log('ServiceWorker registration successful');
-                    })
-                    .catch(err => {
-                        console.log('ServiceWorker registration failed: ', err);
-                    });
-            });
-        }
-    </script>
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VWXV2Q40XH"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-VWXV2Q40XH');
-    </script>
-    
-    <!-- 百度统计 -->
-    <script>
-        var _hmt = _hmt || [];
-        (function() {
-            var hm = document.createElement("script");
-            hm.src = "https://hm.baidu.com/hm.js?XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX";
-            var s = document.getElementsByTagName("script")[0]; 
-            s.parentNode.insertBefore(hm, s);
-        })();
-    </script>
 </head>
 <body>
-    <div id="particles-js"></div>
-    
-    <!-- 添加返回顶部按钮 -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <!-- 添加阅读进度条 -->
-    <div class="progress-bar" id="readingProgress"></div>
-    
     <header class="header">
         <nav class="nav-container">
             <a href="./index.html" class="logo">
-                <span class="gradient-text">JLT</span>
+                <span class="gradient-text">AI设计导航</span>
             </a>
             <div class="nav-menu">
-                <a href="./index.html" class="nav-link active">首页</a>
-                <a href="./pages/projects.html" class="nav-link">项目</a>
-                <a href="./pages/blog.html" class="nav-link">博客</a>
-                <a href="./pages/about.html" class="nav-link">关于</a>
-                <a href="./pages/contact.html" class="nav-link">联系</a>
+                <a href="#featured-tools" class="nav-link">AI工具</a>
+                <a href="#video-tutorials" class="nav-link">视频教程</a>
                 <button class="theme-toggle" aria-label="切换主题">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -108,67 +53,6 @@
 
     <main class="main-content">
         <div class="container">
-            <section class="hero">
-                <div class="hero-content">
-                    <div class="hero-text">
-                        <h1 class="hero-title">
-                            <span class="gradient-text">设计师转型AI</span>
-                            <span class="subtitle">用设计思维探索AI未来</span>
-                        </h1>
-                        <p class="hero-description">集设计审美与AI技术于一身的跨界实践者，致力于将人工智能与创意设计完美融合</p>
-                        <div class="hero-expertise">
-                            <div class="expertise-item">
-                                <i class="fas fa-palette"></i>
-                                <span>10年设计经验</span>
-                            </div>
-                            <div class="expertise-item">
-                                <i class="fas fa-robot"></i>
-                                <span>AI技术专家</span>
-                            </div>
-                            <div class="expertise-item">
-                                <i class="fas fa-brain"></i>
-                                <span>创新思维导师</span>
-                            </div>
-                        </div>
-                        <div class="hero-cta">
-                            <a href="#featured-tools" class="primary-btn">浏览AI工具</a>
-                            <a href="./pages/resources.html" class="secondary-btn">更多资源</a>
-                        </div>
-                    </div>
-                    <div class="hero-visual">
-                        <div class="expertise-cards">
-                            <div class="expertise-card card-1">
-                                <div class="card-icon"><i class="fas fa-paint-brush"></i></div>
-                                <h3>UI/平面设计</h3>
-                                <ul>
-                                    <li>品牌设计</li>
-                                    <li>UI/UX设计</li>
-                                    <li>视觉创意</li>
-                                </ul>
-                            </div>
-                            <div class="expertise-card card-2">
-                                <div class="card-icon"><i class="fas fa-microchip"></i></div>
-                                <h3>AI技术开发</h3>
-                                <ul>
-                                    <li>AI模型训练</li>
-                                    <li>深度学习应用</li>
-                                    <li>智能算法设计</li>
-                                </ul>
-                            </div>
-                            <div class="expertise-card card-3">
-                                <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-                                <h3>创新咨询</h3>
-                                <ul>
-                                    <li>AI+设计集成</li>
-                                    <li>创新战略规划</li>
-                                    <li>数字化转型</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
             <!-- 精选AI工具 -->
             <section id="featured-tools" class="featured-resources">
                 <h2 class="section-title">精选AI设计工具</h2>
@@ -280,266 +164,17 @@
                     </div>
                 </div>
             </section>
-
-            <!-- 为什么选择我 -->
-            <section class="why-me-section">
-                <h2 class="section-title">为什么选择我？</h2>
-                <p class="section-description">跨界背景带来的独特优势</p>
-                
-                <div class="advantages-grid">
-                    <div class="advantage-card">
-                        <h3>设计师的眼光</h3>
-                        <p>10年设计经验，深谙用户体验与视觉美学，让AI产品更有温度</p>
-                    </div>
-                    
-                    <div class="advantage-card">
-                        <h3>技术的力量</h3>
-                        <p>专注AI技术研发，用算法赋能创意，让设计更具智能</p>
-                    </div>
-                    
-                    <div class="advantage-card">
-                        <h3>跨界思维</h3>
-                        <p>融合设计思维与技术创新，为项目提供全方位思路</p>
-                    </div>
-                    
-                    <div class="advantage-card">
-                        <h3>成长潜力</h3>
-                        <p>持续学习和实践，始终站在AI+设计的前沿</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 成功案例 -->
-            <section class="cases-section">
-                <h2 class="section-title">成功案例</h2>
-                <p class="section-description">探索AI与设计的创新实践</p>
-                
-                <div class="cases-grid">
-                    <div class="case-card">
-                        <div class="case-image">
-                            <img src="./assets/images/cases/case1.jpg" alt="案例1">
-                        </div>
-                        <div class="case-content">
-                            <h3>电商平台智能推荐</h3>
-                            <p>运用AI算法优化用户体验，提升平台转化率</p>
-                            <a href="#" class="read-more-btn">查看详情</a>
-                        </div>
-                    </div>
-
-                    <div class="case-card">
-                        <div class="case-image">
-                            <img src="./assets/images/cases/case2.jpg" alt="案例2">
-                        </div>
-                        <div class="case-content">
-                            <h3>企业数字化转型</h3>
-                            <p>帮助传统企业实现数字化升级，提升运营效率</p>
-                            <a href="#" class="read-more-btn">查看详情</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 免费资源 -->
-            <section class="resources-section">
-                <h2 class="section-title">学习资源</h2>
-                <p class="section-description">分享知识，共同成长</p>
-                
-                <div class="resources-grid">
-                    <div class="resource-card">
-                        <i class="fas fa-book"></i>
-                        <h3>AI设计指南</h3>
-                        <p>帮助设计师快速掌握AI工具</p>
-                        <a href="#" class="secondary-btn">免费下载</a>
-                    </div>
-
-                    <div class="resource-card">
-                        <i class="fas fa-code"></i>
-                        <h3>实战项目</h3>
-                        <p>AI设计实战案例和代码</p>
-                        <a href="#" class="secondary-btn">开始学习</a>
-                    </div>
-
-                    <div class="resource-card">
-                        <i class="fas fa-video"></i>
-                        <h3>视频教程</h3>
-                        <p>AI设计工具入门教程</p>
-                        <a href="#" class="secondary-btn">观看教程</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 最新文章 -->
-            <section class="featured-posts">
-                <h2 class="section-title">最新文章</h2>
-                <p class="section-description">分享AI设计经验与思考</p>
-                <div class="blog-posts">
-                    <article class="post-card">
-                        <div class="post-content">
-                            <h3>AI如何改变设计工作流程</h3>
-                            <div class="post-meta">
-                                <span><i class="far fa-calendar"></i> 发布于 2024-05-15</span>
-                            </div>
-                            <p>探讨AI工具如何提升设计效率，改变传统设计流程...</p>
-                        </div>
-                        <div class="post-footer">
-                            <a href="#" class="read-more-btn">阅读更多</a>
-                            <div class="share-buttons">
-                                <button class="share-btn" onclick="shareToWeibo(this)" data-title="AI如何改变设计工作流程" data-url="window.location.href">
-                                    <i class="fab fa-weibo"></i>
-                                </button>
-                                <button class="share-btn" onclick="shareToTwitter(this)" data-title="AI如何改变设计工作流程" data-url="window.location.href">
-                                    <i class="fab fa-twitter"></i>
-                                </button>
-                                <button class="share-btn" onclick="showQRCode(this)" data-url="window.location.href">
-                                    <i class="fas fa-qrcode"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </article>
-                </div>
-            </section>
-
-            <!-- 社群部分 -->
-            <section class="community-section" id="community">
-                <h2 class="section-title">AI设计师社群</h2>
-                <p class="section-description">与志同道合者一起探索AI设计的未来</p>
-                
-                <div class="community-features">
-                    <div class="feature-item">
-                        <i class="fas fa-users"></i>
-                        <h3>知识分享</h3>
-                        <p>每周更新AI设计技巧和经验分享</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-comments"></i>
-                        <h3>实时交流</h3>
-                        <p>与其他设计师交流学习心得</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-lightbulb"></i>
-                        <h3>资源共享</h3>
-                        <p>获取最新AI设计工具和学习资料</p>
-                    </div>
-                </div>
-
-                <div class="community-cta">
-                    <h3>准备好开启AI设计之旅了吗？</h3>
-                    <p>加入我们的社群，与其他设计师一起探索AI的无限可能</p>
-                    <div class="cta-buttons">
-                        <a href="./pages/community.html" class="primary-btn">立即加入</a>
-                        <a href="./pages/community.html" class="secondary-btn">了解更多</a>
-                    </div>
-                </div>
-            </section>
         </div>
     </main>
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2024 我的个人网站. All rights reserved.</p>
+            <p>&copy; 2024 AI设计资源导航. All rights reserved.</p>
         </div>
     </footer>
 
-    <!-- 返回顶部按钮 -->
-    <button id="backToTop" class="back-to-top" aria-label="返回顶部">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <!-- JavaScript -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="./assets/js/particles-config.js"></script>
     <script src="./assets/js/main.js"></script>
     <script src="./assets/js/theme.js"></script>
-
-    <script>
-        // 评论区配置
-        const gitalk = new Gitalk({
-            clientID: 'Ov23lik6kBl3aJWI9Noi', // GitHub OAuth App Client ID
-            clientSecret: '09e7d9ee48ccc50b40cdd9a597e8e171a93b29e8', // GitHub OAuth App Client Secret
-            repo: 'personal-website',      // 存储评论的仓库名
-            owner: 'jiangleiting',         // 您的GitHub用户名
-            admin: ['jiangleiting'],       // 管理员用户名
-            id: location.pathname,         // 页面唯一标识
-            distractionFreeMode: false     // 无干扰模式
-        });
-        gitalk.render('gitalk-container');
-
-        // 分享到微博
-        function shareToWeibo(button) {
-            const title = button.getAttribute('data-title');
-            const url = button.getAttribute('data-url');
-            const shareUrl = `http://service.weibo.com/share/share.php?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`;
-            window.open(shareUrl, '_blank', 'width=700,height=500');
-        }
-
-        // 分享到Twitter
-        function shareToTwitter(button) {
-            const title = button.getAttribute('data-title');
-            const url = button.getAttribute('data-url');
-            const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`;
-            window.open(shareUrl, '_blank', 'width=700,height=500');
-        }
-
-        // 显示二维码
-        function showQRCode(button) {
-            const url = button.getAttribute('data-url');
-            const modal = document.getElementById('qrModal');
-            const qrcodeDiv = document.getElementById('qrcode');
-            
-            // 清除已有的二维码
-            qrcodeDiv.innerHTML = '';
-            
-            // 生成新的二维码
-            new QRCode(qrcodeDiv, {
-                text: url,
-                width: 200,
-                height: 200
-            });
-            
-            modal.style.display = 'block';
-        }
-
-        // 关闭二维码模态框
-        document.querySelector('.close-modal').onclick = function() {
-            document.getElementById('qrModal').style.display = 'none';
-        }
-
-        // 点击模态框外部关闭
-        window.onclick = function(event) {
-            const modal = document.getElementById('qrModal');
-            if (event.target == modal) {
-                modal.style.display = 'none';
-            }
-        }
-
-        // 添加自定义事件跟踪
-        function trackEvent(category, action, label) {
-            if (window.gtag) {
-                gtag('event', action, {
-                    'event_category': category,
-                    'event_label': label
-                });
-            }
-            if (window._hmt) {
-                _hmt.push(['_trackEvent', category, action, label]);
-            }
-        }
-
-        // 示例：跟踪文章阅读
-        document.querySelectorAll('.read-more-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const title = this.closest('.post-card').querySelector('h3').textContent;
-                trackEvent('Article', 'Read', title);
-            });
-        });
-
-        // 示例：跟踪分享行为
-        document.querySelectorAll('.share-btn').forEach(btn => {
-            btn.addEventListener('click', function() {
-                const platform = this.querySelector('i').className.includes('weibo') ? 'Weibo' : 'Twitter';
-                trackEvent('Share', 'Click', platform);
-            });
-        });
-    </script>
 </body>
 </html>

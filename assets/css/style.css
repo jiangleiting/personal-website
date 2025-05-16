@@ -87,10 +87,13 @@ body {
     text-decoration: none;
     font-weight: 500;
     transition: var(--transition);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
 }
 
 .nav-link:hover {
     color: var(--primary-color);
+    background: var(--bg-secondary);
 }
 
 .theme-toggle {
@@ -113,7 +116,7 @@ body {
     padding: 40px 0;
 }
 
-/* 章节标题 */
+/* 工具分类标题 */
 .section-title {
     font-size: 2rem;
     font-weight: 700;
@@ -129,7 +132,19 @@ body {
     font-size: 1.1rem;
 }
 
-/* AI工具卡片 */
+/* 工具分类区域 */
+.tools-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: var(--bg-secondary);
+    border-radius: 20px;
+}
+
+.tools-section:last-child {
+    margin-bottom: 0;
+}
+
+/* 工具卡片网格 */
 .tools-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -181,7 +196,7 @@ body {
 }
 
 .feature-tag {
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
     color: var(--text-secondary);
     padding: 4px 12px;
     border-radius: 20px;
@@ -197,61 +212,13 @@ body {
     border-radius: 25px;
     font-weight: 500;
     transition: var(--transition);
+    width: 100%;
+    text-align: center;
 }
 
 .tool-link:hover {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(74, 158, 255, 0.2);
-}
-
-/* 视频教程区域 */
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    margin: 2rem 0;
-}
-
-.video-card {
-    background: var(--card-bg);
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: var(--transition);
-}
-
-.video-card:hover {
-    transform: translateY(-5px);
-}
-
-.video-preview {
-    position: relative;
-    padding-top: 56.25%; /* 16:9 宽高比 */
-    background: var(--bg-secondary);
-}
-
-.video-preview iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-.video-info {
-    padding: 1.5rem;
-}
-
-.video-info h3 {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
-
-.video-info p {
-    color: var(--text-secondary);
-    font-size: 0.9rem;
 }
 
 /* 页脚 */
@@ -276,9 +243,13 @@ body {
         display: block;
     }
     
-    .tools-grid,
-    .video-grid {
+    .tools-grid {
         grid-template-columns: 1fr;
+    }
+
+    .tools-section {
+        padding: 1rem;
+        margin: 1rem 0;
     }
 }
 

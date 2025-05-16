@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="AI设计资源导航，分享优质AI设计工具和教程。">
-    <meta name="keywords" content="AI设计,Midjourney,Stable Diffusion,Canva AI,Adobe Firefly,AI教程">
+    <meta name="description" content="AI设计资源导航，发现优质AI设计工具。">
+    <meta name="keywords" content="AI设计,Midjourney,Stable Diffusion,Canva AI,Adobe Firefly">
     <meta name="author" content="蒋雷霆">
     <meta name="robots" content="index,follow">
     <meta property="og:title" content="AI设计资源导航">
-    <meta property="og:description" content="发现和学习最新的AI设计工具与教程">
+    <meta property="og:description" content="发现最新最全的AI设计工具">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://jiangleiting.github.io/personal-website/">
     
@@ -25,8 +25,8 @@
     <meta name="theme-color" content="#4a9eff">
     
     <link rel="icon" href="./assets/images/favicon.ico" type="image/x-icon">
-    <title>AI设计资源导航 - 发现优质AI设计工具与教程</title>
-    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.2">
+    <title>AI设计资源导航 - 发现优质AI设计工具</title>
+    <link rel="stylesheet" href="./assets/css/style.css?v=1.0.3">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -37,8 +37,8 @@
                 <span class="gradient-text">AI设计导航</span>
             </a>
             <div class="nav-menu">
-                <a href="#featured-tools" class="nav-link">AI工具</a>
-                <a href="#video-tutorials" class="nav-link">视频教程</a>
+                <a href="#image-ai" class="nav-link">图像生成</a>
+                <a href="#design-ai" class="nav-link">设计辅助</a>
                 <button class="theme-toggle" aria-label="切换主题">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -53,10 +53,10 @@
 
     <main class="main-content">
         <div class="container">
-            <!-- 精选AI工具 -->
-            <section id="featured-tools" class="featured-resources">
-                <h2 class="section-title">精选AI设计工具</h2>
-                <p class="section-description">精心挑选的AI设计工具，助你提升创作效率</p>
+            <!-- 图像生成AI -->
+            <section id="image-ai" class="tools-section">
+                <h2 class="section-title">图像生成AI</h2>
+                <p class="section-description">专业的AI图像生成工具，让创作更轻松</p>
                 
                 <div class="tools-grid">
                     <div class="tool-card">
@@ -75,6 +75,28 @@
 
                     <div class="tool-card">
                         <div class="tool-icon">
+                            <img src="./assets/images/tools/stable-diffusion.png" alt="Stable Diffusion">
+                        </div>
+                        <h3>Stable Diffusion</h3>
+                        <p>开源AI图像生成模型，支持本地部署使用</p>
+                        <div class="tool-features">
+                            <span class="feature-tag">开源</span>
+                            <span class="feature-tag">本地部署</span>
+                            <span class="feature-tag">可定制</span>
+                        </div>
+                        <a href="https://stability.ai" class="tool-link" target="_blank">访问官网</a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 设计辅助AI -->
+            <section id="design-ai" class="tools-section">
+                <h2 class="section-title">设计辅助AI</h2>
+                <p class="section-description">智能设计工具，提升设计效率</p>
+                
+                <div class="tools-grid">
+                    <div class="tool-card">
+                        <div class="tool-icon">
                             <img src="./assets/images/tools/canva.png" alt="Canva AI">
                         </div>
                         <h3>Canva AI</h3>
@@ -89,20 +111,6 @@
 
                     <div class="tool-card">
                         <div class="tool-icon">
-                            <img src="./assets/images/tools/stable-diffusion.png" alt="Stable Diffusion">
-                        </div>
-                        <h3>Stable Diffusion</h3>
-                        <p>开源AI图像生成模型，支持本地部署使用</p>
-                        <div class="tool-features">
-                            <span class="feature-tag">开源</span>
-                            <span class="feature-tag">本地部署</span>
-                            <span class="feature-tag">可定制</span>
-                        </div>
-                        <a href="https://stability.ai" class="tool-link" target="_blank">访问官网</a>
-                    </div>
-
-                    <div class="tool-card">
-                        <div class="tool-icon">
                             <img src="./assets/images/tools/firefly.png" alt="Adobe Firefly">
                         </div>
                         <h3>Adobe Firefly</h3>
@@ -113,54 +121,6 @@
                             <span class="feature-tag">可商用</span>
                         </div>
                         <a href="https://www.adobe.com/products/firefly.html" class="tool-link" target="_blank">访问官网</a>
-                    </div>
-                </div>
-            </section>
-
-            <!-- 视频教程 -->
-            <section id="video-tutorials" class="video-section">
-                <h2 class="section-title">最新视频教程</h2>
-                <p class="section-description">精选AI设计工具教程，助你快速上手</p>
-                
-                <div class="video-grid">
-                    <div class="video-card">
-                        <div class="video-preview">
-                            <iframe src="//player.bilibili.com/player.html?aid=xxx&bvid=xxx" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-                        </div>
-                        <div class="video-info">
-                            <h3>Midjourney V6 完全入门指南</h3>
-                            <p>最新版本特性解析与实战技巧</p>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-preview">
-                            <iframe src="//player.bilibili.com/player.html?aid=xxx&bvid=xxx" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-                        </div>
-                        <div class="video-info">
-                            <h3>2024年AI设计趋势分析</h3>
-                            <p>探讨AI如何改变设计行业</p>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-preview">
-                            <iframe src="//player.bilibili.com/player.html?aid=xxx&bvid=xxx" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-                        </div>
-                        <div class="video-info">
-                            <h3>Stable Diffusion实战教程</h3>
-                            <p>从安装到进阶的完整指南</p>
-                        </div>
-                    </div>
-
-                    <div class="video-card">
-                        <div class="video-preview">
-                            <iframe src="//player.bilibili.com/player.html?aid=xxx&bvid=xxx" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>
-                        </div>
-                        <div class="video-info">
-                            <h3>Adobe Firefly新功能解析</h3>
-                            <p>最新特性与实用技巧分享</p>
-                        </div>
                     </div>
                 </div>
             </section>

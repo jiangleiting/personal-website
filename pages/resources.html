@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI设计资源导航 - 精选AI工具与设计资源</title>
+    <meta name="description" content="精选优质AI设计工具和设计资源，助力设计师提升工作效率">
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+    
+    <header class="header">
+        <nav class="nav-container">
+            <a href="../index.html" class="logo">
+                <span class="gradient-text">JLT</span>
+            </a>
+            <div class="nav-menu">
+                <a href="../index.html" class="nav-link">首页</a>
+                <a href="./projects.html" class="nav-link">项目</a>
+                <a href="./blog.html" class="nav-link">博客</a>
+                <a href="./resources.html" class="nav-link active">资源</a>
+                <a href="./about.html" class="nav-link">关于</a>
+                <button class="theme-toggle" aria-label="切换主题">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+            <button class="menu-toggle" aria-label="菜单">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <section class="resources-hero">
+                <h1 class="section-title">AI设计资源导航</h1>
+                <p class="section-description">精选优质AI工具与设计资源，助力设计师提升工作效率</p>
+                
+                <div class="search-box">
+                    <input type="text" id="resourceSearch" placeholder="搜索资源...">
+                    <i class="fas fa-search"></i>
+                </div>
+
+                <div class="resource-filters">
+                    <button class="filter-btn active" data-filter="all">全部</button>
+                    <button class="filter-btn" data-filter="ai-design">AI设计工具</button>
+                    <button class="filter-btn" data-filter="ai-image">AI图像工具</button>
+                    <button class="filter-btn" data-filter="design-resource">设计素材</button>
+                    <button class="filter-btn" data-filter="learning">学习资源</button>
+                </div>
+            </section>
+
+            <!-- AI设计工具 -->
+            <section class="resource-section" id="ai-design">
+                <h2 class="section-title">AI设计工具</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-category="ai-design">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/midjourney.png" alt="Midjourney">
+                        </div>
+                        <div class="resource-content">
+                            <h3>Midjourney</h3>
+                            <p>AI图像生成工具，擅长艺术风格创作</p>
+                            <div class="resource-tags">
+                                <span class="tag">图像生成</span>
+                                <span class="tag">艺术创作</span>
+                            </div>
+                            <a href="https://www.midjourney.com" class="resource-link" target="_blank">访问网站</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-category="ai-design">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/figma.png" alt="Figma">
+                        </div>
+                        <div class="resource-content">
+                            <h3>Figma AI</h3>
+                            <p>Figma内置AI助手，提升设计效率</p>
+                            <div class="resource-tags">
+                                <span class="tag">UI设计</span>
+                                <span class="tag">协作</span>
+                            </div>
+                            <a href="https://www.figma.com" class="resource-link" target="_blank">访问网站</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- AI图像工具 -->
+            <section class="resource-section" id="ai-image">
+                <h2 class="section-title">AI图像工具</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-category="ai-image">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/stable-diffusion.png" alt="Stable Diffusion">
+                        </div>
+                        <div class="resource-content">
+                            <h3>Stable Diffusion</h3>
+                            <p>开源AI图像生成模型，可本地部署</p>
+                            <div class="resource-tags">
+                                <span class="tag">开源</span>
+                                <span class="tag">图像生成</span>
+                            </div>
+                            <a href="https://stability.ai" class="resource-link" target="_blank">访问网站</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-category="ai-image">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/dalle.png" alt="DALL-E">
+                        </div>
+                        <div class="resource-content">
+                            <h3>DALL-E</h3>
+                            <p>OpenAI开发的AI图像生成工具</p>
+                            <div class="resource-tags">
+                                <span class="tag">图像生成</span>
+                                <span class="tag">编辑</span>
+                            </div>
+                            <a href="https://openai.com/dall-e-3" class="resource-link" target="_blank">访问网站</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 设计素材 -->
+            <section class="resource-section" id="design-resource">
+                <h2 class="section-title">设计素材</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-category="design-resource">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/unsplash.png" alt="Unsplash">
+                        </div>
+                        <div class="resource-content">
+                            <h3>Unsplash</h3>
+                            <p>免费高质量图片素材库</p>
+                            <div class="resource-tags">
+                                <span class="tag">免费</span>
+                                <span class="tag">图片素材</span>
+                            </div>
+                            <a href="https://unsplash.com" class="resource-link" target="_blank">访问网站</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-category="design-resource">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/icons8.png" alt="Icons8">
+                        </div>
+                        <div class="resource-content">
+                            <h3>Icons8</h3>
+                            <p>图标、插画、照片等设计资源</p>
+                            <div class="resource-tags">
+                                <span class="tag">图标</span>
+                                <span class="tag">插画</span>
+                            </div>
+                            <a href="https://icons8.com" class="resource-link" target="_blank">访问网站</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 学习资源 -->
+            <section class="resource-section" id="learning">
+                <h2 class="section-title">学习资源</h2>
+                <div class="resource-grid">
+                    <div class="resource-card" data-category="learning">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/prompt-engineering.png" alt="Prompt Engineering Guide">
+                        </div>
+                        <div class="resource-content">
+                            <h3>提示工程指南</h3>
+                            <p>学习AI提示词编写技巧</p>
+                            <div class="resource-tags">
+                                <span class="tag">教程</span>
+                                <span class="tag">AI提示词</span>
+                            </div>
+                            <a href="#" class="resource-link" target="_blank">查看详情</a>
+                        </div>
+                    </div>
+
+                    <div class="resource-card" data-category="learning">
+                        <div class="resource-icon">
+                            <img src="../assets/images/resources/design-principles.png" alt="Design Principles">
+                        </div>
+                        <div class="resource-content">
+                            <h3>设计原则课程</h3>
+                            <p>掌握核心设计原则与方法</p>
+                            <div class="resource-tags">
+                                <span class="tag">设计理论</span>
+                                <span class="tag">实践指南</span>
+                            </div>
+                            <a href="#" class="resource-link" target="_blank">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 资源提交 -->
+            <section class="submit-resource">
+                <h2>提交资源</h2>
+                <p>发现了好用的AI工具或设计资源？欢迎提交给我们</p>
+                <a href="#" class="primary-btn">提交资源</a>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 AI设计资源导航. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="../assets/js/particles-config.js"></script>
+    <script src="../assets/js/main.js"></script>
+    <script src="../assets/js/theme.js"></script>
+    <script>
+        // 资源搜索功能
+        const searchInput = document.getElementById('resourceSearch');
+        const resourceCards = document.querySelectorAll('.resource-card');
+
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            
+            resourceCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                const tags = Array.from(card.querySelectorAll('.tag')).map(tag => tag.textContent.toLowerCase());
+                
+                const isMatch = title.includes(searchTerm) || 
+                              description.includes(searchTerm) ||
+                              tags.some(tag => tag.includes(searchTerm));
+                
+                card.style.display = isMatch ? 'flex' : 'none';
+            });
+        });
+
+        // 分类筛选功能
+        const filterButtons = document.querySelectorAll('.filter-btn');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const filter = button.getAttribute('data-filter');
+                
+                // 更新按钮状态
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+                
+                // 筛选资源卡片
+                resourceCards.forEach(card => {
+                    if (filter === 'all') {
+                        card.style.display = 'flex';
+                    } else {
+                        const category = card.getAttribute('data-category');
+                        card.style.display = category === filter ? 'flex' : 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html> 

@@ -1,6 +1,7 @@
 const translations = {
     'zh-CN': {
         'nav': {
+            'title': 'AI设计导航',
             'aiTools': 'AI工具',
             'freeImages': '免费图片',
             'freeVideos': '免费视频',
@@ -29,6 +30,28 @@ const translations = {
                 'description': '笔刷、字体、图标等设计素材'
             }
         },
+        'tools': {
+            'midjourney': {
+                'title': 'Midjourney',
+                'description': '专业级AI艺术创作工具，支持精确提示词控制',
+                'features': ['图像生成', '精确控制', '高质量']
+            },
+            'stableDiffusion': {
+                'title': 'Stable Diffusion',
+                'description': '开源AI图像生成模型，支持本地部署使用',
+                'features': ['开源', '本地部署', '可定制']
+            },
+            'canvaAI': {
+                'title': 'Canva AI',
+                'description': '中文界面在线设计工具，内置多种AI辅助功能',
+                'features': ['在线设计', '中文界面', '模板多']
+            },
+            'adobeFirefly': {
+                'title': 'Adobe Firefly',
+                'description': 'Adobe全新AI创意套件，完美集成Creative Cloud',
+                'features': ['专业', '生态好', '可商用']
+            }
+        },
         'common': {
             'visitWebsite': '访问网站',
             'visitOfficial': '访问官网',
@@ -39,6 +62,7 @@ const translations = {
     },
     'en': {
         'nav': {
+            'title': 'AI Design Resources',
             'aiTools': 'AI Tools',
             'freeImages': 'Free Images',
             'freeVideos': 'Free Videos',
@@ -65,6 +89,28 @@ const translations = {
             'designResources': {
                 'title': 'Free Design Resources',
                 'description': 'Brushes, fonts, icons and other design assets'
+            }
+        },
+        'tools': {
+            'midjourney': {
+                'title': 'Midjourney',
+                'description': 'Professional AI art creation tool with precise prompt control',
+                'features': ['Image Generation', 'Precise Control', 'High Quality']
+            },
+            'stableDiffusion': {
+                'title': 'Stable Diffusion',
+                'description': 'Open-source AI image generation model with local deployment',
+                'features': ['Open Source', 'Local Deploy', 'Customizable']
+            },
+            'canvaAI': {
+                'title': 'Canva AI',
+                'description': 'Online design tool with integrated AI features',
+                'features': ['Online Design', 'AI Features', 'Templates']
+            },
+            'adobeFirefly': {
+                'title': 'Adobe Firefly',
+                'description': 'New AI creative suite perfectly integrated with Creative Cloud',
+                'features': ['Professional', 'Ecosystem', 'Commercial Use']
             }
         },
         'common': {
